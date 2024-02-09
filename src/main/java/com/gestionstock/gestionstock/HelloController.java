@@ -43,6 +43,7 @@ public class HelloController {
         }
         else{
             Utilisateur user =  Utilisateur.connexion(identifiant.getText(),mdp.getText(),messageCo);
+            HelloApplication.setUser(user);
             System.out.println(user.getId());
             if(user.getRole()==1){
                 HelloApplication.changeScene("pageAdmin");

@@ -1,5 +1,6 @@
 package com.gestionstock.gestionstock;
 
+import com.gestionstock.gestionstock.sql.Utilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +10,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+
+    public static Utilisateur getUser() {
+        return user;
+    }
+
+    public static void setUser(Utilisateur user) {
+        HelloApplication.user = user;
+    }
+
+    private static Utilisateur user;
 
     private static Stage maStage;
 
@@ -57,4 +68,6 @@ public class HelloApplication extends Application {
         }
 
     }
+
+
 }
