@@ -1,0 +1,13 @@
+/* styles.css */
+
+/* Style du conteneur racine (la scène dans cet exemple) */
+.root {
+    -fx-background-color: #001F3F; /* Bleu foncé */
+}
+
+/* Style du bouton */
+.button {
+    -fx-background-color: #001F3F; /* Couleur de fond du bouton */
+    -fx-text-fill: white; /* Couleur du texte du bouton */
+    -fx-font-size: 16px; /* Taille de la police du bouton */
+}
