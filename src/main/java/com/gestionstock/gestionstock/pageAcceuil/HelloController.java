@@ -1,6 +1,6 @@
-package com.gestionstock.gestionstock;
+package com.gestionstock.gestionstock.pageAcceuil;
 
-import com.gestionstock.gestionstock.sql.ConnexionBdd;
+import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.sql.Utilisateur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,10 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 
 public class HelloController {
@@ -46,11 +42,11 @@ public class HelloController {
             HelloApplication.setUser(user);
             System.out.println(user.getId());
             if(user.getRole()==1){
-                HelloApplication.changeScene("pageAdmin");
+                HelloApplication.changeScene("pageAdmin","Page Admin");
             } else if (user.getRole()==2) {
                 
             } else if (user.getRole()==3) {
-                
+                HelloApplication.changeScene("pageCompta","Page Comptabilité");
             }
 
         }

@@ -1,6 +1,5 @@
 package com.gestionstock.gestionstock.sql;
 
-import com.gestionstock.gestionstock.HelloApplication;
 import javafx.scene.control.Label;
 
 import java.sql.Connection;
@@ -104,6 +103,7 @@ public class Utilisateur {
         }
         return user;
     }
+
 
 
 }

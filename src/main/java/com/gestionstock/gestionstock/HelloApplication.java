@@ -38,13 +38,13 @@ public class HelloApplication extends Application {
         launch();
     }
 
-    public static void changeScene(String fxml) {
+    public static void changeScene(String fxml , String nomScene) {
         maStage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml+".fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load());
-            maStage.setTitle("Hello!");
+            maStage.setTitle(nomScene);
             maStage.setScene(scene);
             maStage.show();
         } catch (IOException e) {
