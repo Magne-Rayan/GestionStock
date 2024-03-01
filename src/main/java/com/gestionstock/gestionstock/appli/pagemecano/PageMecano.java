@@ -1,5 +1,7 @@
 package com.gestionstock.gestionstock.appli.pagemecano;
 
+import com.gestionstock.gestionstock.HelloApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -15,5 +17,10 @@ public class PageMecano {
 
     @FXML
     private Button maj;
+
+    @FXML
+    void bouttonRouge(ActionEvent event){
+        HelloApplication.changeScene("majBaseDonne","Mise a jour base de donne");
+    }
 
 }

@@ -10,6 +10,8 @@ module com.gestionstock.gestionstock {
     opens com.gestionstock.gestionstock.appli.pageacceuil to javafx.fxml;
     exports com.gestionstock.gestionstock.appli.pageadmin;
     opens com.gestionstock.gestionstock.appli.pageadmin to javafx.fxml;
+    exports com.gestionstock.gestionstock.appli.pagemecano;
+    opens com.gestionstock.gestionstock.appli.pagemecano to javafx.fxml;
     exports com.gestionstock.gestionstock.entity;
     opens com.gestionstock.gestionstock.entity to javafx.fxml;
     exports com.gestionstock.gestionstock;
