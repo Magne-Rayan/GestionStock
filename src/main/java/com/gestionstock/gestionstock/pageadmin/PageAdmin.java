@@ -1,4 +1,4 @@
-package com.gestionstock.gestionstock.pageAdmin;
+package com.gestionstock.gestionstock.pageadmin;
 
 import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
@@ -6,22 +6,21 @@ import com.gestionstock.gestionstock.sql.Utilisateur;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.w3c.dom.events.MouseEvent;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PageAdmin {
     @FXML
     private TextField idText;
+
+    @FXML
+    private Button clear;
 
     @FXML
     private TableColumn<Utilisateur, String> identifiantUser;
@@ -203,5 +202,14 @@ public class PageAdmin {
         SortedList<Utilisateur> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tableau.comparatorProperty());
         tableau.setItems(sortedData);
+    }
+    @FXML
+     void vider(){
+        idText.setText("");
+        prenom.setText("");
+        nom.setText("");
+        identifiant.setText("");
+        mdp.setText("");
+        role.setText("");
     }
 }

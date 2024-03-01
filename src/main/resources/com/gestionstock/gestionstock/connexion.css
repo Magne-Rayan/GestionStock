@@ -7,7 +7,22 @@
 
 /* Style du bouton */
 .button {
-    -fx-background-color: #001F3F; /* Couleur de fond du bouton */
+    -fx-background-color: #0092f5; /* Couleur de fond du bouton */
+    -fx-text-fill: white; /* Couleur du texte du bouton */
+    -fx-font-size: 16px; /* Taille de la police du bouton */
+}
+.button1 {
+    -fx-background-color: #fa0000; /* Couleur de fond du bouton */
+    -fx-text-fill: white; /* Couleur du texte du bouton */
+    -fx-font-size: 16px; /* Taille de la police du bouton */
+}
+.button2 {
+    -fx-background-color: #fff200; /* Couleur de fond du bouton */
+    -fx-text-fill: white; /* Couleur du texte du bouton */
+    -fx-font-size: 16px; /* Taille de la police du bouton */
+}
+.button3 {
+    -fx-background-color: #00ff01; /* Couleur de fond du bouton */
     -fx-text-fill: white; /* Couleur du texte du bouton */
     -fx-font-size: 16px; /* Taille de la police du bouton */
 }

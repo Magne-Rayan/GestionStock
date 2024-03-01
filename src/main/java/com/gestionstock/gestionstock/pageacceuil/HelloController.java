@@ -1,4 +1,4 @@
-package com.gestionstock.gestionstock.pageAcceuil;
+package com.gestionstock.gestionstock.pageacceuil;
 
 import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.sql.Utilisateur;
@@ -44,7 +44,7 @@ public class HelloController {
             if(user.getRole()==1){
                 HelloApplication.changeScene("pageAdmin","Page Admin");
             } else if (user.getRole()==2) {
-                
+                HelloApplication.changeScene("pageMecano","Page Mecano");
             } else if (user.getRole()==3) {
                 HelloApplication.changeScene("pageCompta","Page Comptabilité");
             }
