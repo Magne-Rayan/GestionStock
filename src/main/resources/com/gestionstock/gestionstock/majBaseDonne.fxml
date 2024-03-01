@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1 " >
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1 " fx:controller="com.gestionstock.gestionstock.appli.pagemecano.MajBaseDonne">
    <children>
       <ChoiceBox layoutX="291.0" layoutY="104.0" prefWidth="150.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
