@@ -1,5 +1,6 @@
-package com.gestionstock.gestionstock.sql;
+package com.gestionstock.gestionstock.entity;
 
+import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import javafx.scene.control.Label;
 
 import java.sql.Connection;

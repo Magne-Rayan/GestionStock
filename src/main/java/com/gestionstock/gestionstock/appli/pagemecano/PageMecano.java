@@ -1,4 +1,4 @@
-package com.gestionstock.gestionstock.pagemecano;
+package com.gestionstock.gestionstock.appli.pagemecano;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

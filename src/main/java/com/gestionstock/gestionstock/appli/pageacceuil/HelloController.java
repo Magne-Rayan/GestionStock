@@ -1,7 +1,7 @@
-package com.gestionstock.gestionstock.pageacceuil;
+package com.gestionstock.gestionstock.appli.pageacceuil;
 
 import com.gestionstock.gestionstock.HelloApplication;
-import com.gestionstock.gestionstock.sql.Utilisateur;
+import com.gestionstock.gestionstock.entity.Utilisateur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
