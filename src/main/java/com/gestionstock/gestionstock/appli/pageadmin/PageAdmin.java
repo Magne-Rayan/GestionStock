@@ -104,6 +104,7 @@ public class PageAdmin implements Initializable {
             requetePrepare.setString(3,identifiant.getText());
             requetePrepare.setString(4,mdp.getText());
             requetePrepare.setInt(5,roles.getValue().getIdRole());
+            requetePrepare.executeUpdate();
             rechercher();
 
         } catch (SQLException e) {
@@ -169,7 +170,7 @@ public class PageAdmin implements Initializable {
     public void modifier(){
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
-        String sql = "UPDATE utilisateur  SET id_utilisateur =?, nom = ?, prenom = ?, identifiant = ?, mdp = ? , role = ?";
+        String sql = "UPDATE utilisateur  SET  nom = ?, prenom = ?, identifiant = ?, mdp = ? , ref_role = ? where id_utilisateur =?";
 
         try{
             PreparedStatement requetePrepare = connection.prepareStatement(sql);
@@ -178,16 +179,36 @@ public class PageAdmin implements Initializable {
             requetePrepare.setString(3,identifiant.getText());
             requetePrepare.setString(4,mdp.getText());
             requetePrepare.setInt(5,roles.getValue().getIdRole());
-            ResultSet resultatRequette = requetePrepare.executeQuery();
+            requetePrepare.setInt(6, Integer.parseInt(idText.getText()) );
+            requetePrepare.executeUpdate();
             rechercher();
+            vider();
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
+    public void supprimer(){
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+        String sql = "DELETE FROM utilisateur where id_utilisateur =?";
+        try{
+            PreparedStatement requetePrepare = connection.prepareStatement(sql);
+            System.out.println(idText.getText());
+            requetePrepare.setInt(1, Integer.parseInt(idText.getText()));
+            requetePrepare.executeUpdate();
+            vider();
+            System.out.println(tableau.getItems().get(index));
+            list = ConnexionBdd.recupererUtilisateur();
+            tableau.setItems(list);
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    void rechercher(){
+        void rechercher(){
         idUser.setCellValueFactory(new PropertyValueFactory<Utilisateur,Integer>("id"));
         nomUser.setCellValueFactory(new PropertyValueFactory<Utilisateur,String>("nom"));
         prenomUser.setCellValueFactory(new PropertyValueFactory<Utilisateur,String>("prenom"));
