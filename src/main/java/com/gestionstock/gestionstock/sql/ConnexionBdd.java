@@ -1,4 +1,5 @@
 package com.gestionstock.gestionstock.sql;
+import com.gestionstock.gestionstock.entity.Utilisateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

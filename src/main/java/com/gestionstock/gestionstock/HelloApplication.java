@@ -1,6 +1,6 @@
 package com.gestionstock.gestionstock;
 
-import com.gestionstock.gestionstock.sql.Utilisateur;
+import com.gestionstock.gestionstock.entity.Utilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

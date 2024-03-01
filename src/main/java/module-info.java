@@ -4,12 +4,14 @@ module com.gestionstock.gestionstock {
     requires java.sql;
 
 
-    opens com.gestionstock.gestionstock to javafx.fxml;
-    exports com.gestionstock.gestionstock;
     exports com.gestionstock.gestionstock.sql;
     opens com.gestionstock.gestionstock.sql to javafx.fxml;
-    exports com.gestionstock.gestionstock.pageacceuil;
-    opens com.gestionstock.gestionstock.pageacceuil to javafx.fxml;
-    exports com.gestionstock.gestionstock.pageadmin;
-    opens com.gestionstock.gestionstock.pageadmin to javafx.fxml;
+    exports com.gestionstock.gestionstock.appli.pageacceuil;
+    opens com.gestionstock.gestionstock.appli.pageacceuil to javafx.fxml;
+    exports com.gestionstock.gestionstock.appli.pageadmin;
+    opens com.gestionstock.gestionstock.appli.pageadmin to javafx.fxml;
+    exports com.gestionstock.gestionstock.entity;
+    opens com.gestionstock.gestionstock.entity to javafx.fxml;
+    exports com.gestionstock.gestionstock;
+    opens com.gestionstock.gestionstock to javafx.fxml;
 }

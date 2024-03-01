@@ -1,21 +1,25 @@
-package com.gestionstock.gestionstock.pageadmin;
+package com.gestionstock.gestionstock.appli.pageadmin;
 
 import com.gestionstock.gestionstock.HelloApplication;
+import com.gestionstock.gestionstock.entity.Role;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
-import com.gestionstock.gestionstock.sql.Utilisateur;
+import com.gestionstock.gestionstock.entity.Utilisateur;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class PageAdmin {
+public class PageAdmin implements Initializable {
     @FXML
     private TextField idText;
 
@@ -72,6 +76,8 @@ public class PageAdmin {
 
     @FXML
     private TextField rechercher;
+    @FXML
+    private ChoiceBox<Role> roles;
 
     ObservableList<Utilisateur> list;
     ObservableList<Utilisateur> dataList;
@@ -79,8 +85,10 @@ public class PageAdmin {
 
     @FXML
     void messageAdmin() {
-        nomAdmin.setText("Session "+ HelloApplication.getUser().getNom() + HelloApplication.getUser().getPrenom());
+        nomAdmin.setText("Session "+ HelloApplication.getUser().getNom() +" "+ HelloApplication.getUser().getPrenom());
+    }
 
+    public PageAdmin() {
     }
 
     @FXML
@@ -95,7 +103,7 @@ public class PageAdmin {
             requetePrepare.setString(2,prenom.getText());
             requetePrepare.setString(3,identifiant.getText());
             requetePrepare.setString(4,mdp.getText());
-            requetePrepare.setString(5,role.getText());
+            requetePrepare.setInt(5,roles.getValue().getIdRole());
             rechercher();
 
         } catch (SQLException e) {
@@ -134,6 +142,7 @@ public class PageAdmin {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
 
@@ -147,7 +156,13 @@ public class PageAdmin {
         prenom.setText(prenomUser.getCellData(index).toString());
         identifiant.setText(identifiantUser.getCellData(index).toString());
         mdp.setText(mdpUser.getCellData(index).toString());
-        //role.setText(roleUser.getCellData(index).toString());
+        for (Role r : roles.getItems()
+             ) {
+            if (r.getIdRole() == Integer.valueOf(roleUser.getCellData(index).toString())){
+                roles.setValue(r);
+                break;
+            }
+        }
 
     }
 
@@ -162,7 +177,7 @@ public class PageAdmin {
             requetePrepare.setString(2,prenom.getText());
             requetePrepare.setString(3,identifiant.getText());
             requetePrepare.setString(4,mdp.getText());
-            requetePrepare.setString(5,role.getText());
+            requetePrepare.setInt(5,roles.getValue().getIdRole());
             ResultSet resultatRequette = requetePrepare.executeQuery();
             rechercher();
 
@@ -210,6 +225,29 @@ public class PageAdmin {
         nom.setText("");
         identifiant.setText("");
         mdp.setText("");
-        role.setText("");
+        roles.setValue(null);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        messageAdmin();
+        initialiser();
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+        String sql = "SELECT * FROM role";
+
+        try{
+            PreparedStatement requetePrepare = connection.prepareStatement(sql);
+            ResultSet resultatRequette = requetePrepare.executeQuery();
+            while (resultatRequette.next()){
+                String nom = resultatRequette.getString("fonction");
+                int idRole = resultatRequette.getInt("id_role");
+                roles.getItems().add(new Role(idRole,nom));
+                //MenuItem menuItem = new MenuItem(nom);
+                //role.getItems().add(menuItem);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
