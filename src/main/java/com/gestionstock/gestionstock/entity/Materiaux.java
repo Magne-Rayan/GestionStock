@@ -1,6 +1,6 @@
 package com.gestionstock.gestionstock.entity;
 
-public class Matiere {
+public class Materiaux {
     public String getMatiere() {
         return matiere;
     }
@@ -11,7 +11,7 @@ public class Matiere {
 
     private String matiere;
 
-    public Matiere(String nom){
+    public Materiaux(String nom){
         this.matiere = nom;
 
     }

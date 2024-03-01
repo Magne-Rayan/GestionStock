@@ -1,8 +1,7 @@
 package com.gestionstock.gestionstock.appli.pagemecano;
 
 import com.gestionstock.gestionstock.entity.Forme;
-import com.gestionstock.gestionstock.entity.Matiere;
-import com.gestionstock.gestionstock.entity.Role;
+import com.gestionstock.gestionstock.entity.Materiaux;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,7 +29,7 @@ public class MajBaseDonne implements Initializable {
     private ImageView image;
 
     @FXML
-    private ChoiceBox<Matiere> matiere;
+    private ChoiceBox<Materiaux> matiere;
 
     @FXML
     private TextField stockTotal;
@@ -69,7 +68,7 @@ public class MajBaseDonne implements Initializable {
             ResultSet resultatRequette = requete.executeQuery();
             while (resultatRequette.next()) {
                 String nom = resultatRequette.getString("nom");
-                matiere.getItems().add(new Matiere(nom));
+                matiere.getItems().add(new Materiaux(nom));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
