@@ -17,6 +17,27 @@ public class Forme {
 
     private String nom;
 
+    public String getDiametre() {
+        return "Diametre :"+ diametre;
+    }
+
+    public void setDiametre(float diamettre) {
+        this.diametre = diamettre;
+    }
+
+    public float getLargeur() {
+        return largeur;
+    }
+
+    public void setLargeur(float largeur) {
+        this.largeur = largeur;
+    }
+
+    private float diametre;
+    private float largeur;
+
+
+
     public String toString(){
         return nom;
     }

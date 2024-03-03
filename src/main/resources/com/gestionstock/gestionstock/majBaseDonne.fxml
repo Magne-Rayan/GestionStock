@@ -13,19 +13,21 @@
       <ChoiceBox fx:id="forme" layoutX="291.0" layoutY="104.0" prefWidth="150.0" />
       <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="34.0" layoutY="323.0" prefHeight="17.0" prefWidth="69.0" text="Stock Total " />
-      <Label layoutX="34.0" layoutY="368.0" text="Ressource utilisé" />
+      <Label layoutX="34.0" layoutY="368.0" text="Ressource utilisée" />
       <TextField fx:id="stockTotal" disable="true" layoutX="134.0" layoutY="319.0" />
       <TextField fx:id="stockUtiliser" layoutX="134.0" layoutY="364.0" />
       <ChoiceBox fx:id="matiere" layoutX="291.0" layoutY="179.0" prefWidth="150.0" />
       <Label layoutX="291.0" layoutY="147.0" text="Matière :" />
       <Label layoutX="293.0" layoutY="73.0" text="Forme : " />
       <ChoiceBox fx:id="dimention" layoutX="291.0" layoutY="254.0" prefWidth="150.0" />
-      <Label layoutX="291.0" layoutY="222.0" text="Dimensions" />
-      <Label layoutX="149.0" layoutY="14.0" prefHeight="34.0" prefWidth="314.0" text="Mise a jour Base De Donnée  " textFill="#fa0000">
+      <Label layoutX="291.0" layoutY="222.0" text="Dimensions :" />
+      <Label layoutX="149.0" layoutY="14.0" prefHeight="34.0" prefWidth="314.0" text="Mise à jour Base De Données  " textFill="#fa0000">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="valider" layoutX="463.0" layoutY="340.0" mnemonicParsing="false" text="VALIDER" />
+      <Button fx:id="valider" layoutX="359.0" layoutY="344.0" mnemonicParsing="false" text="VALIDER" />
+      <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="150.0" text="Retour en arriere" />
+      <Button fx:id="vider" layoutX="441.0" layoutY="344.0" mnemonicParsing="false" text="VIDER" />
    </children>
 </Pane>
