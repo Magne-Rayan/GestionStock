@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class HelloController  {
+public class HelloController   {
 
     @FXML
     private Button connexion;

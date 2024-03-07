@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pageConnexion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageacceuil.HelloController">
+<Pane fx:id="pageConnexion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@connexion.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageacceuil.HelloController">
    <children>
       <Label layoutX="87.0" layoutY="107.0" prefHeight="29.0" prefWidth="160.0" text="GestionStock">
          <font>
@@ -21,18 +21,17 @@
             <Image url="@../../../../logoSchuman.png" />
          </image>
       </ImageView>
-      <TextField fx:id="identifiant" layoutX="358.0" layoutY="187.0" promptText="Identifiant" />
-      <PasswordField fx:id="mdp" layoutX="358.0" layoutY="242.0" promptText="Mot De Passe " />
-      <Button layoutX="388.0" layoutY="318.0" mnemonicParsing="false" onAction="#connexion" text="connexion">
+      <TextField fx:id="identifiant" layoutX="358.0" layoutY="187.0" promptText="Identifiant" styleClass="textfield" stylesheets="@connexion.css" />
+      <PasswordField fx:id="mdp" layoutX="358.0" layoutY="242.0" promptText="Mot De Passe " styleClass="textfield" stylesheets="@connexion.css" />
+      <Button layoutX="388.0" layoutY="318.0" mnemonicParsing="false" onAction="#connexion" styleClass="buttonConnexion" stylesheets="@connexion.css" text="connexion">
          <font>
             <Font name="Tahoma" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="383.0" layoutY="111.0" text="Connexion">
+      <Label layoutX="372.0" layoutY="107.0" prefHeight="33.0" prefWidth="124.0" text="Connexion">
          <font>
-            <Font name="Tahoma" size="20.0" />
+            <Font name="Tahoma" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="messageCo" alignment="CENTER" layoutX="315.0" layoutY="136.0" prefHeight="33.0" prefWidth="229.0" />
    </children>
 </Pane>

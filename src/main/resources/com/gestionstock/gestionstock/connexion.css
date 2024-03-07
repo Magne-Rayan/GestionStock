@@ -2,7 +2,7 @@
 
 /* Style du conteneur racine (la scène dans cet exemple) */
 .root {
-    -fx-background-color: #001F3F; /* Bleu foncé */
+    -fx-background-color: linear-gradient(to left, #182cad, #b0d0f6);
 }
 
 /* Style du bouton */
@@ -26,3 +26,23 @@
     -fx-text-fill: white; /* Couleur du texte du bouton */
     -fx-font-size: 16px; /* Taille de la police du bouton */
 }
+.buttonConnexion{
+    -fx-background-color:
+            linear-gradient(#000000, #000000),
+            linear-gradient(#F0F8FF, #F0F8FF),
+            linear-gradient(#F0F8FF, #F0F8FF),
+            linear-gradient(#F0F8FF 0%, #F0F8FF 50%, #F0F8FF 100%),
+            linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+.textfield{
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20 20 20 20;
+    -fx-border-color: #F0F8FF;
+}
+

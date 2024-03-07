@@ -24,8 +24,6 @@ import java.util.ResourceBundle;
 
 public class MajBaseDonne implements Initializable {
 
-    @FXML
-    private ChoiceBox<Forme> dimention;
 
     @FXML
     private ChoiceBox<Forme> forme;
@@ -64,17 +62,20 @@ public class MajBaseDonne implements Initializable {
 
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
-        String sql = "SELECT nom FROM forme";
+        String sql = "SELECT nom,diametre, hauteur,largeur,coteSurPlat,epaisseur FROM forme";
 
         try {
             PreparedStatement requetePrepare = connection.prepareStatement(sql);
             ResultSet resultatRequette = requetePrepare.executeQuery();
             while (resultatRequette.next()) {
                 String nom = resultatRequette.getString("nom");
-                //String diametre = resultatRequette.getString("diametre");
-                Forme forme1 = new Forme(nom);
-                forme.getItems().add(new Forme(nom));
-                //dimention.getItems().add(forme1.getDiametre());
+                float diametre = resultatRequette.getFloat("diametre");
+                float hauteur = resultatRequette.getFloat("hauteur");
+                float largeur = resultatRequette.getFloat("largeur");
+                float coteSurPlat = resultatRequette.getFloat("coteSurPlat");
+                float epaisseur = resultatRequette.getFloat("epaisseur");
+                forme.getItems().add(new Forme(nom,diametre,largeur,coteSurPlat,hauteur,epaisseur));
+
 
 
 
