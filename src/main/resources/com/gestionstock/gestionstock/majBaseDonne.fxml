@@ -25,7 +25,7 @@
       <Button fx:id="valider" layoutX="418.0" layoutY="344.0" mnemonicParsing="false" text="VALIDER" />
       <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="150.0" text="Retour en arriere" />
       <Button fx:id="vider" layoutX="493.0" layoutY="344.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
-      <ChoiceBox fx:id="dimention" layoutX="291.0" layoutY="160.0" prefHeight="25.0" prefWidth="227.0" />
+      <ChoiceBox fx:id="dimention" layoutX="291.0" layoutY="160.0" onMouseClicked="#clickDimentionEvent" onMouseEntered="#clickDimentionEvent" onMouseExited="#clickDimentionEvent" prefHeight="25.0" prefWidth="227.0" />
       <Label layoutX="292.0" layoutY="129.0" text="Dimention :" />
    </children>
 </Pane>

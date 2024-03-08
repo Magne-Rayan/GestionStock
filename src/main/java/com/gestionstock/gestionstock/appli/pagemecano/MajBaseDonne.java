@@ -66,8 +66,8 @@ public class MajBaseDonne implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Matiere matiere1 = new Matiere();
-        stockTotal.setText(String.valueOf(matiere1.afficher()));
+        //Matiere matiere1 = new Matiere();
+        //stockTotal.setText(String.valueOf(matiere1.afficher()));
 
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
@@ -95,14 +95,15 @@ public class MajBaseDonne implements Initializable {
         }
 
         Connection connection1 = connexionBdd.getBdd();
-        String sql1 = "SELECT nom FROM materiaux";
+        String sql1 = "SELECT * FROM materiaux";
 
         try{
             PreparedStatement requete = connection1.prepareStatement(sql1);
             ResultSet resultatRequette = requete.executeQuery();
             while (resultatRequette.next()) {
                 String nom = resultatRequette.getString("nom");
-                matiere.getItems().add(new Materiaux(nom));
+                int id = resultatRequette.getInt("id_materiaux");
+                this.matiere.getItems().add(new Materiaux(nom,id));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -152,24 +153,32 @@ public class MajBaseDonne implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+
+
+
+        }
+    }
+
+    @FXML
+    void clickDimentionEvent(MouseEvent event) throws SQLException {
+        if(this.dimention.getValue() != null){
             String sql4 = "SELECT longueur FROM matiere WHERE ref_materiaux = ? and ref_forme = ?";
             try {
                 ConnexionBdd connection = new ConnexionBdd();
                 Connection connection1 = connection.getBdd();
                 PreparedStatement requetePrepare = connection1.prepareStatement(sql4);
+                System.out.println(matiere.getValue().getIdMateriaux());
+                System.out.println(forme.getValue().getIdTypeForme());
                 requetePrepare.setInt(1,this.matiere.getValue().getIdMateriaux());
                 requetePrepare.setInt(2,this.forme.getValue().getIdTypeForme());
                 ResultSet resultatRequette = requetePrepare.executeQuery();
                 while (resultatRequette.next()) {
-                    System.out.println("+++");
                     float longeur = resultatRequette.getFloat("longueur");
                     stockTotal.setText(String.valueOf(longeur));
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
-
         }
     }
 
