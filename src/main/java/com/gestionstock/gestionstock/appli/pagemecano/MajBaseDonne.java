@@ -152,7 +152,22 @@ public class MajBaseDonne implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            String sql4 = "SELECT longeur FROM matiere WHERE ref_materiaux = ? and ref_forme = ?";
+            String sql4 = "SELECT longueur FROM matiere WHERE ref_materiaux = ? and ref_forme = ?";
+            try {
+                ConnexionBdd connection = new ConnexionBdd();
+                Connection connection1 = connection.getBdd();
+                PreparedStatement requetePrepare = connection1.prepareStatement(sql4);
+                requetePrepare.setInt(1,this.matiere.getValue().getIdMateriaux());
+                requetePrepare.setInt(2,this.forme.getValue().getIdTypeForme());
+                ResultSet resultatRequette = requetePrepare.executeQuery();
+                while (resultatRequette.next()) {
+                    System.out.println("+++");
+                    float longeur = resultatRequette.getFloat("longueur");
+                    stockTotal.setText(String.valueOf(longeur));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
 
         }
