@@ -1,6 +1,7 @@
 package com.gestionstock.gestionstock.entity;
 
 public class Matiere {
+
     public float getLongeur() {
         return longeur;
     }

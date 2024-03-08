@@ -75,7 +75,8 @@ public class Forme {
 
 
     public String toString(){
-        return nom + largeur + diametre + coteSurPlat + hauteur + epaisseur;
+        return nom + " dimention :"+largeur + diametre + coteSurPlat + hauteur ;
+
     }
 
 }
