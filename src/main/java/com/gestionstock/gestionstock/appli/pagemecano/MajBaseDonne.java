@@ -1,4 +1,13 @@
 package com.gestionstock.gestionstock.appli.pagemecano;
 
-public class MajBaseDonne {
+import javafx.fxml.Initializable;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MajBaseDonne implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
