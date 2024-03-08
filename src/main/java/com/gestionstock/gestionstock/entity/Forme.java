@@ -3,8 +3,7 @@ package com.gestionstock.gestionstock.entity;
 
 
 public class Forme {
-    public Forme(String nom,float diametre, float largeur, float coteSurPlat, float hauteur, float epaisseur){
-        this.nom = nom ;
+    public Forme(float diametre, float largeur, float coteSurPlat, float hauteur, float epaisseur){
         this.diametre = diametre ;
         this.largeur = largeur;
         this.coteSurPlat = coteSurPlat;
@@ -12,15 +11,9 @@ public class Forme {
         this.hauteur = hauteur;
     }
 
-    public String getNom() {
-        return nom;
-    }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
 
-    private String nom;
+
 
 
     public float getDiametre() {
@@ -75,7 +68,8 @@ public class Forme {
 
 
     public String toString(){
-        return nom + " dimention :"+largeur + diametre + coteSurPlat + hauteur ;
+        return " dimention : "+
+                ((largeur !=0)? largeur: "") + ((diametre !=0)? "d:"+diametre: "") + ((coteSurPlat !=0)? coteSurPlat: "") + ((hauteur !=0)? hauteur: "") + ((epaisseur !=0)? epaisseur: "") ;
 
     }
 

@@ -4,6 +4,7 @@ import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.entity.Forme;
 import com.gestionstock.gestionstock.entity.Materiaux;
 import com.gestionstock.gestionstock.entity.Matiere;
+import com.gestionstock.gestionstock.entity.TypeForme;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,20 +14,20 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.w3c.dom.ls.LSOutput;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class MajBaseDonne implements Initializable {
 
 
     @FXML
-    private ChoiceBox<Forme> forme;
+    private ChoiceBox<Forme> dimention;
+
+    @FXML
+    private ChoiceBox<TypeForme> forme;
 
     @FXML
     private ImageView image;
@@ -54,6 +55,14 @@ public class MajBaseDonne implements Initializable {
         HelloApplication.changeScene("pageMecano","Page Mecano");
     }
 
+    @FXML
+    void vider(){
+        forme.setValue(null);
+        dimention.setValue(null);
+        matiere.setValue(null);
+        image.setImage(null);
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -62,19 +71,19 @@ public class MajBaseDonne implements Initializable {
 
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
-        String sql = "SELECT nom,diametre, hauteur,largeur,coteSurPlat,epaisseur FROM forme";
+        String sql = "SELECT diametre, hauteur,largeur,coteSurPlat,epaisseur,ref_typeforme FROM forme";
 
         try {
             PreparedStatement requetePrepare = connection.prepareStatement(sql);
             ResultSet resultatRequette = requetePrepare.executeQuery();
             while (resultatRequette.next()) {
-                String nom = resultatRequette.getString("nom");
                 float diametre = resultatRequette.getFloat("diametre");
                 float hauteur = resultatRequette.getFloat("hauteur");
                 float largeur = resultatRequette.getFloat("largeur");
                 float coteSurPlat = resultatRequette.getFloat("coteSurPlat");
                 float epaisseur = resultatRequette.getFloat("epaisseur");
-                forme.getItems().add(new Forme(nom,diametre,largeur,coteSurPlat,hauteur,epaisseur));
+                int typeforme = resultatRequette.getInt("ref_typeforme");
+                dimention.getItems().add(new Forme(diametre,largeur,coteSurPlat,hauteur,epaisseur));
 
 
 
@@ -99,9 +108,54 @@ public class MajBaseDonne implements Initializable {
             throw new RuntimeException(e);
         }
 
+        String sql2 = "SELECT * FROM typeforme";
+
+        try{
+            PreparedStatement requete = connection.prepareStatement(sql2);
+            ResultSet resultatRequette = requete.executeQuery();
+            while (resultatRequette.next()) {
+                int idTypeForme = resultatRequette.getInt("id_typeforme");
+                String nom = resultatRequette.getString("nom");
+                Blob image = resultatRequette.getBlob("image");
+                forme.getItems().add(new TypeForme(idTypeForme,nom,image));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
 
     }
 
 
+    @FXML
+    void clickFormeEvent(MouseEvent event) throws SQLException {
+        System.out.println("test*");
+        if(this.forme.getValue() != null){
+            image.setImage(new Image(this.forme.getValue().getImage().getBinaryStream()));
+            String sql3 = "SELECT diametre, hauteur,largeur,coteSurPlat,epaisseur FROM forme WHERE  ref_typeforme = ?";
+            try {
+                ConnexionBdd connection = new ConnexionBdd();
+                Connection connection1 = connection.getBdd();
+                PreparedStatement requetePrepare = connection1.prepareStatement(sql3);
+                requetePrepare.setInt(1,this.forme.getValue().getIdTypeForme());
+                ResultSet resultatRequette = requetePrepare.executeQuery();
+                while (resultatRequette.next()) {
+                    float diametre = resultatRequette.getFloat("diametre");
+                    float hauteur = resultatRequette.getFloat("hauteur");
+                    float largeur = resultatRequette.getFloat("largeur");
+                    float coteSurPlat = resultatRequette.getFloat("coteSurPlat");
+                    float epaisseur = resultatRequette.getFloat("epaisseur");
+                    dimention.getItems().add(new Forme(diametre,largeur,coteSurPlat,hauteur,epaisseur));
+
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            String sql4 = "SELECT longeur FROM matiere WHERE ref_materiaux = ? and ref_forme = ?";
+
+
+        }
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.gestionstock.gestionstock.entity;
 
+import java.sql.Blob;
+
 public class TypeForme {
 
     public String getNom() {
@@ -15,9 +17,27 @@ public class TypeForme {
         return nom ;
     }
 
-    public TypeForme(String nom) {
+    public TypeForme(int idTypeForme,String nom,Blob image) {
+        this.idTypeForme = idTypeForme;
         this.nom = nom;
+        this.image = image;
     }
 
     private String nom;
+
+    public int getIdTypeForme() {
+        return idTypeForme;
+    }
+
+    public void setIdTypeForme(int idTypeForme) {
+        this.idTypeForme = idTypeForme;
+    }
+
+    private int idTypeForme;
+
+    public Blob getImage() {
+        return image;
+    }
+
+    private Blob image;
 }
