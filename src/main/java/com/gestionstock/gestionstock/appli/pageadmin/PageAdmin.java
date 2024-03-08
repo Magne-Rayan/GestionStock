@@ -251,6 +251,8 @@ public class PageAdmin implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        rechercher();
         messageAdmin();
         initialiser();
         ConnexionBdd connexionBdd = new ConnexionBdd();
