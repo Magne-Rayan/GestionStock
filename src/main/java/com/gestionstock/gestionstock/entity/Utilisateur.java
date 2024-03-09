@@ -9,6 +9,12 @@ import java.sql.ResultSet;
 
 public class Utilisateur {
     private int id;
+
+    @Override
+    public String toString() {
+        return  nom ;
+    }
+
     private String nom;
     private String prenom;
     private String identif;
@@ -26,6 +32,9 @@ public class Utilisateur {
         this.identif = identif;
         this.mdP = mdP;
         this.role = role;
+    }
+    public Utilisateur(String nom){
+        this.nom = nom;
     }
 
     public int getId() {
