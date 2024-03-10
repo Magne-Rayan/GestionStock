@@ -68,8 +68,8 @@ public class Forme {
 
 
     public String toString(){
-        return " dimention : "+
-                ((largeur !=0)? largeur: "") + ((diametre !=0)? "d:"+diametre: "") + ((coteSurPlat !=0)? coteSurPlat: "") + ((hauteur !=0)? hauteur: "") + ((epaisseur !=0)? epaisseur: "") ;
+        return " Dimention : "+
+                ((largeur !=0)? "l: "+largeur: "") + ((diametre !=0)? "d: "+diametre: "") + ((coteSurPlat !=0)? "cp: "+coteSurPlat: "") + ((hauteur !=0)? "h: "+hauteur: "") + ((epaisseur !=0)? "ep: "+epaisseur: "") ;
 
     }
 

@@ -271,7 +271,7 @@ public class BonDebit  implements Initializable {
                 ResultSet resultatRequette = requetePrepare.executeQuery();
                 while (resultatRequette.next()) {
                     float longeur = resultatRequette.getFloat("longueur");
-                    stockInitial.setText(String.valueOf(longeur));
+                    stockInitial.setText(String.valueOf(longeur)+" cm");
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
