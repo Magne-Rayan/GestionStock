@@ -59,4 +59,14 @@ public class Piece {
     private Blob image;
     private int refMatiere;
     private int refSysteme;
+
+    public float getLongeur() {
+        return longeur;
+    }
+
+    public void setLongeur(float longeur) {
+        this.longeur = longeur;
+    }
+
+    private float longeur;
 }

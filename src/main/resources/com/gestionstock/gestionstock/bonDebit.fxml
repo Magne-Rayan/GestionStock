@@ -31,7 +31,7 @@
       <Label layoutX="19.0" layoutY="312.0" text="Forme :" />
       <Label layoutX="155.0" layoutY="312.0" text="Dimention :" />
       <Label layoutX="295.0" layoutY="312.0" text="Quantité :" />
-      <TextField fx:id="quantité" layoutX="295.0" layoutY="336.0" prefHeight="25.0" prefWidth="130.0" />
+      <TextField fx:id="quantité" layoutX="295.0" layoutY="336.0" onAction="#clickQuantiteEvent" prefHeight="25.0" prefWidth="130.0" />
       <Label layoutX="454.0" layoutY="312.0" text="Longeur total Débité :" />
       <TextField fx:id="totalDebiter" disable="true" layoutX="455.0" layoutY="336.0" />
       <Label layoutX="454.0" layoutY="376.0" text="Stock initial :" />
@@ -46,7 +46,9 @@
       <ComboBox fx:id="classe" layoutX="62.0" layoutY="146.0" prefWidth="150.0" />
       <ComboBox fx:id="systeme" layoutX="62.0" layoutY="196.0" onAction="#clickSystemeEvent" prefWidth="150.0" />
       <ComboBox fx:id="piece" layoutX="62.0" layoutY="242.0" onAction="#clickPieceEvent" prefWidth="150.0" />
-      <ComboBox fx:id="forme" layoutX="14.0" layoutY="336.0" prefHeight="25.0" prefWidth="115.0" />
-      <ComboBox fx:id="dimention" layoutX="154.0" layoutY="336.0" prefHeight="25.0" prefWidth="115.0" />
+      <ComboBox fx:id="forme" layoutX="14.0" layoutY="336.0" onAction="#clickFormeEvent" prefHeight="25.0" prefWidth="115.0" />
+      <ComboBox fx:id="dimention" layoutX="154.0" layoutY="336.0" onAction="#clickDimentionEvent" prefHeight="25.0" prefWidth="115.0" />
+      <Label layoutX="21.0" layoutY="392.0" text="Materiaux :" />
+      <ComboBox fx:id="materiaux" layoutX="14.0" layoutY="413.0" prefHeight="25.0" prefWidth="115.0" />
    </children>
 </Pane>
