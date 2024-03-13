@@ -44,9 +44,11 @@ public class Piece {
         this.refSysteme = refSysteme;
     }
 
-    public Piece(String nom, Blob image) {
+    public Piece(String nom, Blob image, float longeur,int idPiece) {
         this.nom = nom;
         this.image = image;
+        this.longeur = longeur;
+        this.idPiece = idPiece;
     }
 
     @Override

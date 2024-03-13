@@ -157,15 +157,17 @@ public class BonDebit  implements Initializable {
             throw new RuntimeException(e);
         }
 
-        String sql5 = "SELECT nom,img FROM piece ";
+        String sql5 = "SELECT id_piece,nom,img, longueur FROM piece ";
 
         try{
             PreparedStatement requete = connection.prepareStatement(sql5);
             ResultSet resultatRequette = requete.executeQuery();
             while (resultatRequette.next()) {
+                int id = resultatRequette.getInt("id_piece");
                 String nom = resultatRequette.getString("nom");
                 Blob image = resultatRequette.getBlob("img");
-                this.piece.getItems().add(new Piece(nom,image));
+                float longueur = resultatRequette.getFloat("longueur");
+                this.piece.getItems().add(new Piece(nom,image,longueur,id));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -228,6 +230,10 @@ public class BonDebit  implements Initializable {
     void clickQuantiteEvent(ActionEvent event) throws SQLException {
         if(this.quantite.getText() != null){
             totalDebiter.setText(piece.getValue().getLongeur()*Integer.valueOf(quantite.getText())+"");
+            float stockInitialValue = Float.valueOf(stockInitial.getText());
+            float totalDebiterValue = Float.valueOf(totalDebiter.getText());
+            float resultat = stockInitialValue - totalDebiterValue;
+            stockFinal.setText(Float.valueOf(resultat)+"");
         }
     }
 
@@ -271,7 +277,7 @@ public class BonDebit  implements Initializable {
                 ResultSet resultatRequette = requetePrepare.executeQuery();
                 while (resultatRequette.next()) {
                     float longeur = resultatRequette.getFloat("longueur");
-                    stockInitial.setText(String.valueOf(longeur)+" cm");
+                    stockInitial.setText(String.valueOf(longeur));
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -279,6 +285,27 @@ public class BonDebit  implements Initializable {
         }
     }
 
+    @FXML
+    void clickValider(ActionEvent event){
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+        String sql = "INSERT INTO bondebit (`quantite`, `longueurTotal`, `ref_filiere`, `ref_piece`, `ref_matiere`) " +
+                "VALUES (?,?,?,?,?) ";
+
+        try {
+            PreparedStatement requete = connection.prepareStatement(sql);
+            requete.setInt(1, Integer.valueOf(this.quantite.getText()));
+            requete.setFloat(2, Float.valueOf(this.totalDebiter.getText()));
+            requete.setInt(3,this.filiere.getValue().getId_filiere());
+            requete.setInt(4,this.piece.getValue().getIdPiece());
+
+
+            ResultSet resultatRequette = requete.executeQuery();
+
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
+}
