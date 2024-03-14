@@ -11,11 +11,6 @@ public class Forme {
         this.hauteur = hauteur;
     }
 
-
-
-
-
-
     public float getDiametre() {
         return diametre;
     }
