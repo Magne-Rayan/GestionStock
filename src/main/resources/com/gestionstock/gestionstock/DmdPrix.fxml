@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.DmdPrix">
+   <children>
+      <Label layoutX="250.0" prefHeight="61.0" prefWidth="256.0" text="DEMANDE DE PRIX :" textAlignment="CENTER">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="68.0" prefHeight="17.0" prefWidth="79.0" text="Demandeur :" />
+      <TextField fx:id="demandeur" layoutX="93.0" layoutY="64.0" />
+      <Label layoutX="191.0" layoutY="168.0" prefHeight="13.0" prefWidth="46.0" text="LARGEUR">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="151.0" prefHeight="17.0" prefWidth="46.0" text="Forme :" />
+      <ChoiceBox fx:id="forme" layoutX="28.0" layoutY="181.0" prefHeight="17.0" prefWidth="90.0" />
+      <Label layoutX="179.0" layoutY="151.0" text="Dimenssion : " />
+      <Label layoutX="307.0" layoutY="151.0" text="Dimenssion : " />
+      <Label layoutX="319.0" layoutY="168.0" prefHeight="13.0" prefWidth="71.0" text=" DIAMETRE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="435.0" layoutY="151.0" text="Dimenssion : " />
+      <Label layoutX="444.0" layoutY="168.0" text="HAUTEUR">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="662.0" layoutY="151.0" text="Quantité :" />
+      <TextField fx:id="quantite" layoutX="652.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="largeur" disable="true" layoutX="179.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="diametre" disable="true" layoutX="307.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="hauteur" disable="true" layoutX="435.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <ImageView fx:id="image" fitHeight="94.0" fitWidth="116.0" layoutX="594.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView layoutX="62.0" layoutY="246.0" prefHeight="200.0" prefWidth="611.0">
+        <columns>
+          <TableColumn prefWidth="107.19998168945312" text="FORME" />
+          <TableColumn prefWidth="98.40003967285156" text="LARGEUR" />
+            <TableColumn prefWidth="103.20001220703125" text="DIAMETRE" />
+            <TableColumn prefWidth="105.60003662109375" text="HAUTEUR" />
+            <TableColumn prefWidth="98.39996337890625" text="LONGUEUR" />
+            <TableColumn prefWidth="95.199951171875" text="QUANTITÉ" />
+        </columns>
+      </TableView>
+      <TextField fx:id="longueur" layoutX="550.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <Label layoutX="550.0" layoutY="151.0" text="Dimenssion : " />
+      <Label layoutX="549.0" layoutY="168.0" text="LONGUEUR en cm">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Button fx:id="Retour" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="150.0" text="Retour en arriere" />
+      <ComboBox fx:id="fournisseur" layoutX="23.0" layoutY="108.0" prefHeight="25.0" prefWidth="716.0" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</Pane>
