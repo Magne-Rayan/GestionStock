@@ -33,5 +33,6 @@
             <Font name="Tahoma" size="26.0" />
          </font>
       </Label>
+      <Label fx:id="messageCo" layoutX="365.0" layoutY="152.0" prefHeight="18.0" prefWidth="151.0" />
    </children>
 </Pane>
