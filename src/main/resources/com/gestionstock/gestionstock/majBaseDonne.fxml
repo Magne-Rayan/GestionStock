@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.MajBaseDonne">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.MajBaseDonne">
    <children>
       <Label layoutX="18.0" layoutY="348.0" prefHeight="17.0" prefWidth="106.0" text="Modification stock :" />
       <TextField fx:id="modifStock" layoutX="128.0" layoutY="344.0" />
@@ -22,16 +22,16 @@
       <Button fx:id="valider" layoutX="349.0" layoutY="353.0" mnemonicParsing="false" text="VALIDER" />
       <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="114.0" text="Retour en arriere" />
       <Button fx:id="vider" layoutX="439.0" layoutY="353.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
-      <TableView fx:id="tableau" layoutX="169.0" layoutY="100.0" prefHeight="209.0" prefWidth="408.0">
+      <TableView fx:id="tableau" layoutX="169.0" layoutY="100.0" prefHeight="209.0" prefWidth="551.0">
         <columns>
-          <TableColumn fx:id="dimention" prefWidth="104.80003356933594" text="Dimention" />
-          <TableColumn fx:id="matiere" minWidth="0.0" prefWidth="243.60003662109375" text="Matière">
-               <columns>
-                  <TableColumn fx:id="allu" prefWidth="75.0" text="Alluminium" />
-                  <TableColumn fx:id="laiton" prefWidth="75.0" text="Laiton" />
-                  <TableColumn fx:id="pom" prefWidth="75.0" text="POM" />
-                  <TableColumn fx:id="acier" prefWidth="75.0" text="Acier" />
-               </columns></TableColumn>
+          <TableColumn fx:id="diametre" prefWidth="68.0" text="diametre" />
+          <TableColumn fx:id="hauteur" minWidth="0.0" prefWidth="69.59996032714844" text="hauteur" />
+            <TableColumn fx:id="largeur" minWidth="0.0" prefWidth="69.59996032714844" text="largeur" />
+            <TableColumn fx:id="coteSurPlat" minWidth="0.0" prefWidth="75.99993896484375" text="coteSurPlat" />
+            <TableColumn fx:id="epaisseur" minWidth="0.0" prefWidth="75.99993896484375" text="epaisseur" />
+            <TableColumn fx:id="nom" minWidth="0.0" prefWidth="55.199951171875" text="nom" />
+            <TableColumn fx:id="longueur" minWidth="0.0" prefWidth="71.20001220703125" text="longueur" />
+            <TableColumn fx:id="nomMat" prefWidth="64.0" text="nomat" />
         </columns>
       </TableView>
       <ComboBox fx:id="forme" layoutX="14.0" layoutY="135.0" onAction="#clickFormeEvent" prefHeight="25.0" prefWidth="114.0" />

@@ -1,5 +1,6 @@
 package com.gestionstock.gestionstock.sql;
 import com.gestionstock.gestionstock.entity.Utilisateur;
+import com.gestionstock.gestionstock.vues.Tableau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -40,6 +41,24 @@ public class ConnexionBdd {
             throw new RuntimeException(e);
 
         }
+        return liste;
+    }
+
+    public static ObservableList<Tableau> recupFormes() {
+        ObservableList<Tableau> liste = FXCollections.observableArrayList();
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+        String sql = "SELECT * FROM tableau1 ";
+        try {
+            PreparedStatement requetePrepare = connection.prepareStatement(sql);
+            ResultSet resultatRequette = requetePrepare.executeQuery();
+            while (resultatRequette.next()) {
+                liste.add(new Tableau(resultatRequette.getFloat("diametre"),resultatRequette.getFloat("hauteur"),resultatRequette.getFloat("largeur"),resultatRequette.getFloat("coteSurPlat"),resultatRequette.getFloat("epaisseur"),resultatRequette.getString("nom"),resultatRequette.getFloat("longueur"),resultatRequette.getString("nomMat")));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         return liste;
     }
 }
