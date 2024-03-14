@@ -97,6 +97,7 @@ public class BonDebit  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
         String sql = "SELECT * FROM typeforme";
@@ -129,13 +130,14 @@ public class BonDebit  implements Initializable {
             throw new RuntimeException(e);
         }
 
-        String sql3 = "SELECT nom FROM utilisateur WHERE ref_role in(SELECT id_role FROM role WHERE fonction ='Mecanitien')";
+        String sql3 = "SELECT id_utilisateur, nom FROM utilisateur WHERE ref_role in(SELECT id_role FROM role WHERE fonction ='Mecanitien')";
         try {
             PreparedStatement requete = connection.prepareStatement(sql3);
             ResultSet resultatRequette = requete.executeQuery();
             while (resultatRequette.next()) {
+                int id = resultatRequette.getInt("id_utilisateur");
                 String nom = resultatRequette.getString("nom");
-                this.nom.getItems().add( new Utilisateur(nom));
+                this.nom.getItems().add( new Utilisateur(nom,id));
             }
 
         } catch (SQLException e) {
@@ -298,9 +300,7 @@ public class BonDebit  implements Initializable {
             requete.setFloat(2, Float.valueOf(this.totalDebiter.getText()));
             requete.setInt(3,this.filiere.getValue().getId_filiere());
             requete.setInt(4,this.piece.getValue().getIdPiece());
-
-
-            ResultSet resultatRequette = requete.executeQuery();
+            requete.executeQuery();
 
     } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -21,13 +22,20 @@
       <Button fx:id="valider" layoutX="349.0" layoutY="353.0" mnemonicParsing="false" text="VALIDER" />
       <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="114.0" text="Retour en arriere" />
       <Button fx:id="vider" layoutX="439.0" layoutY="353.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
-      <TableView fx:id="tableau" layoutX="174.0" layoutY="100.0" prefHeight="209.0" prefWidth="350.0">
+      <TableView fx:id="tableau" layoutX="169.0" layoutY="100.0" prefHeight="209.0" prefWidth="408.0">
         <columns>
-          <TableColumn prefWidth="178.40000915527344" text="Dimention" />
-          <TableColumn minWidth="0.0" prefWidth="171.199951171875" text="Matière" />
+          <TableColumn fx:id="dimention" prefWidth="104.80003356933594" text="Dimention" />
+          <TableColumn fx:id="matiere" minWidth="0.0" prefWidth="243.60003662109375" text="Matière">
+               <columns>
+                  <TableColumn fx:id="allu" prefWidth="75.0" text="Alluminium" />
+                  <TableColumn fx:id="laiton" prefWidth="75.0" text="Laiton" />
+                  <TableColumn fx:id="pom" prefWidth="75.0" text="POM" />
+                  <TableColumn fx:id="acier" prefWidth="75.0" text="Acier" />
+               </columns></TableColumn>
         </columns>
       </TableView>
-      <ComboBox fx:id="forme" layoutX="14.0" layoutY="135.0" prefHeight="25.0" prefWidth="114.0" />
+      <ComboBox fx:id="forme" layoutX="14.0" layoutY="135.0" onAction="#clickFormeEvent" prefHeight="25.0" prefWidth="114.0" />
       <Label layoutX="14.0" layoutY="111.0" text="Formes :" />
+      <ImageView fx:id="imageForme" fitHeight="123.0" fitWidth="137.0" layoutX="18.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
