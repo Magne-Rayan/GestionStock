@@ -20,8 +20,9 @@ public class Materiaux {
 
     private String matiere;
 
-    public Materiaux(String nom){
+    public Materiaux(String nom,int idMateriaux){
         this.matiere = nom;
+        this.idMateriaux = idMateriaux;
 
     }
     public String toString(){

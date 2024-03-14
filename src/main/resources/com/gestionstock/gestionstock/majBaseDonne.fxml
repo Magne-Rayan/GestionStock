@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -10,22 +12,30 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.MajBaseDonne">
    <children>
-      <ChoiceBox fx:id="forme" layoutX="291.0" layoutY="86.0" onMouseEntered="#clickFormeEvent" onMouseExited="#clickFormeEvent" prefHeight="25.0" prefWidth="227.0" />
-      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="34.0" layoutY="323.0" prefHeight="17.0" prefWidth="69.0" text="Stock Total " />
-      <TextField fx:id="stockTotal" disable="true" layoutX="134.0" layoutY="319.0" />
-      <ChoiceBox fx:id="matiere" layoutX="291.0" layoutY="232.0" prefHeight="25.0" prefWidth="227.0" />
-      <Label layoutX="291.0" layoutY="204.0" text="Matière :" />
-      <Label layoutX="291.0" layoutY="65.0" text="Forme  : " />
+      <Label layoutX="18.0" layoutY="348.0" prefHeight="17.0" prefWidth="106.0" text="Modification stock :" />
+      <TextField fx:id="modifStock" layoutX="128.0" layoutY="344.0" />
       <Label layoutX="149.0" layoutY="14.0" prefHeight="34.0" prefWidth="314.0" text="Mise à jour Base De Données  " textFill="#fa0000">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="valider" layoutX="418.0" layoutY="344.0" mnemonicParsing="false" text="VALIDER" />
-      <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="150.0" text="Retour en arriere" />
-      <Button fx:id="vider" layoutX="493.0" layoutY="344.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
-      <ChoiceBox fx:id="dimention" layoutX="291.0" layoutY="160.0" prefHeight="25.0" prefWidth="227.0" />
-      <Label layoutX="292.0" layoutY="129.0" text="Dimention :" />
+      <Button fx:id="valider" layoutX="349.0" layoutY="353.0" mnemonicParsing="false" text="VALIDER" />
+      <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="114.0" text="Retour en arriere" />
+      <Button fx:id="vider" layoutX="439.0" layoutY="353.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
+      <TableView fx:id="tableau" layoutX="169.0" layoutY="100.0" prefHeight="209.0" prefWidth="408.0">
+        <columns>
+          <TableColumn fx:id="dimention" prefWidth="104.80003356933594" text="Dimention" />
+          <TableColumn fx:id="matiere" minWidth="0.0" prefWidth="243.60003662109375" text="Matière">
+               <columns>
+                  <TableColumn fx:id="allu" prefWidth="75.0" text="Alluminium" />
+                  <TableColumn fx:id="laiton" prefWidth="75.0" text="Laiton" />
+                  <TableColumn fx:id="pom" prefWidth="75.0" text="POM" />
+                  <TableColumn fx:id="acier" prefWidth="75.0" text="Acier" />
+               </columns></TableColumn>
+        </columns>
+      </TableView>
+      <ComboBox fx:id="forme" layoutX="14.0" layoutY="135.0" onAction="#clickFormeEvent" prefHeight="25.0" prefWidth="114.0" />
+      <Label layoutX="14.0" layoutY="111.0" text="Formes :" />
+      <ImageView fx:id="imageForme" fitHeight="123.0" fitWidth="137.0" layoutX="18.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
