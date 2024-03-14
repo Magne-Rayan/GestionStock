@@ -48,7 +48,7 @@ public class ConnexionBdd {
         ObservableList<Tableau> liste = FXCollections.observableArrayList();
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
-        String sql = "SELECT * FROM tableau1 ";
+        String sql = "SELECT * FROM `tableau2` ";
         try {
             PreparedStatement requetePrepare = connection.prepareStatement(sql);
             ResultSet resultatRequette = requetePrepare.executeQuery();

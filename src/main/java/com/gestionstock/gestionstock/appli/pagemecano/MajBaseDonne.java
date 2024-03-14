@@ -156,17 +156,11 @@ public class MajBaseDonne implements Initializable {
             // boucle sur les materieaux
 
 
-<<<<<<< HEAD
-=======
-            dimention.setText("test");
-            dimention.setCellValueFactory(new PropertyValueFactory<>("largeur"));
-            dimention.setCellValueFactory(new PropertyValueFactory<>("coteSurPlat"));
-            dimention.setCellValueFactory(new PropertyValueFactory<>("hauteur"));
-            dimention.setCellValueFactory(new PropertyValueFactory<>("epaisseur"));
-            HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
+
+
+            //HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
             //Selectionner l'ensemble des Materiaux
             // boucle sur les baterieaux
->>>>>>> 6454a43f90bad6a0ee63844559ed10061e7fb40f
             // selectinner l'ensemble des matieres par materiaux
             String sql2 = "SELECT * FROM matiere GROUP BY ref_materiaux";
 

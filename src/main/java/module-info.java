@@ -14,6 +14,8 @@ module com.gestionstock.gestionstock {
     opens com.gestionstock.gestionstock.appli.pagemecano to javafx.fxml;
     exports com.gestionstock.gestionstock.entity;
     opens com.gestionstock.gestionstock.entity to javafx.fxml;
+    exports com.gestionstock.gestionstock.vues;
+    opens com.gestionstock.gestionstock.vues to javafx.fxml;
     exports com.gestionstock.gestionstock;
     opens com.gestionstock.gestionstock to javafx.fxml;
 }
