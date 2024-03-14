@@ -81,6 +81,7 @@ public class MajBaseDonne implements Initializable {
     @FXML
     void vider(){
         modifStock.setText("");
+        imageForme.setImage(null);
     }
 
     public void getSelected(javafx.scene.input.MouseEvent mouseEvent) {
