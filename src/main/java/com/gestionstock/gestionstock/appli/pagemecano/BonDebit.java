@@ -87,6 +87,8 @@ public class BonDebit  implements Initializable {
         totalDebiter.setText(null);
         stockInitial.setText(null);
         stockFinal.setText(null);
+        imageSysteme.setImage(null);
+        visuelPiece.setImage(null);
 
     }
 

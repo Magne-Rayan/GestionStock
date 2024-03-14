@@ -80,10 +80,15 @@ public class MajBaseDonne implements Initializable {
 
     @FXML
     void vider(){
-
-
-
+        modifStock.setText("");
     }
+
+    public void getSelected(javafx.scene.input.MouseEvent mouseEvent) {
+        index = tableau.getSelectionModel().getSelectedIndex();
+        if(index <= -1){
+            return;
+        }
+        modifStock.setText(longueur.getCellData(index).toString());}
 
 
     @FXML
