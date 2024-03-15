@@ -89,7 +89,9 @@ public class MajBaseDonne implements Initializable {
         if(index <= -1){
             return;
         }
-        modifStock.setText(longueur.getCellData(index).toString());}
+        modifStock.setText(longueur.getCellData(index).toString());
+        
+    }
 
 
     @FXML
