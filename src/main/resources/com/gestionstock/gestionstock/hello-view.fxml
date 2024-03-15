@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pageConnexion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageacceuil.HelloController">
+<Pane fx:id="pageConnexion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@connexion.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageacceuil.HelloController">
    <children>
       <Label layoutX="87.0" layoutY="107.0" prefHeight="29.0" prefWidth="160.0" text="GestionStock">
          <font>
@@ -18,7 +18,7 @@
       </Label>
       <ImageView fx:id="logoLycee" fitHeight="189.0" fitWidth="139.0" layoutX="87.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../logoSchuman.png" />
+            <Image url="@../../../logoSchuman.png" />
          </image>
       </ImageView>
       <TextField fx:id="identifiant" layoutX="358.0" layoutY="187.0" promptText="Identifiant" styleClass="textfield" stylesheets="@connexion.css" />

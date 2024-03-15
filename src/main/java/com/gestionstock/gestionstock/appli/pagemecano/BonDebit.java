@@ -307,6 +307,7 @@ public class BonDebit  implements Initializable {
     } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        vider();
 
 
     }

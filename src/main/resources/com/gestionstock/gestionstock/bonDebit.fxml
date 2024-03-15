@@ -23,7 +23,7 @@
       <Label layoutX="18.0" layoutY="246.0" text="Piece :" />
       <ImageView fx:id="logo" fitHeight="65.0" fitWidth="42.0" layoutX="643.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../logoSchuman.png" />
+            <Image url="@../../../logoSchuman.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageSysteme" fitHeight="134.0" fitWidth="157.0" layoutX="268.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />

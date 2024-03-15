@@ -85,12 +85,31 @@ public class MajBaseDonne implements Initializable {
     }
 
     public void getSelected(javafx.scene.input.MouseEvent mouseEvent) {
-        index = tableau.getSelectionModel().getSelectedIndex();
-        if(index <= -1){
-            return;
+        Tableau t = tableau.getSelectionModel().getSelectedItem();
+
+        modifStock.setText(String.valueOf(t.getLongueur()));
+
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+
+
+        String sql2 = "SELECT * FROM typeforme WHERE id_typeforme =?";
+
+        try{
+            PreparedStatement requete = connection.prepareStatement(sql2);
+            requete.setInt(1,t.getId());
+            ResultSet resultatRequette = requete.executeQuery();
+            while (resultatRequette.next()) {
+                int idTypeForme = resultatRequette.getInt("id_typeforme");
+                String nom = resultatRequette.getString("nom");
+                Blob image = resultatRequette.getBlob("image");
+                TypeForme forme1 = new TypeForme(idTypeForme,nom,image);
+                imageForme.setImage(new Image(forme1.getImage().getBinaryStream()));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        modifStock.setText(longueur.getCellData(index).toString());
-        
+
     }
 
 
@@ -116,40 +135,17 @@ public class MajBaseDonne implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialiser();
-
-
-        ConnexionBdd connexionBdd = new ConnexionBdd();
-        Connection connection = connexionBdd.getBdd();
-
-
-        String sql2 = "SELECT * FROM typeforme";
-
-        try{
-            PreparedStatement requete = connection.prepareStatement(sql2);
-            ResultSet resultatRequette = requete.executeQuery();
-            while (resultatRequette.next()) {
-                int idTypeForme = resultatRequette.getInt("id_typeforme");
-                String nom = resultatRequette.getString("nom");
-                Blob image = resultatRequette.getBlob("image");
-                forme.getItems().add(new TypeForme(idTypeForme,nom,image));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
     }
 
 
-    @FXML
+    /*@FXML
     void clickFormeEvent(ActionEvent event) throws SQLException {
         if(this.forme.getValue() != null) {
             imageForme.setImage(new Image(this.forme.getValue().getImage().getBinaryStream()));
             ConnexionBdd connexionBdd = new ConnexionBdd();
             Connection connection = connexionBdd.getBdd();
 
-            /*HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
+            HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
             //Selectionner l'ensemble des Materiaux
             String sql1 = "SELECT * FROM materiaux";
 
@@ -200,4 +196,3 @@ public class MajBaseDonne implements Initializable {
 
         }
 
-    }}

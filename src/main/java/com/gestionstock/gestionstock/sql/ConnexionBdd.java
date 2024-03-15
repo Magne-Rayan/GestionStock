@@ -48,12 +48,12 @@ public class ConnexionBdd {
         ObservableList<Tableau> liste = FXCollections.observableArrayList();
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
-        String sql = "SELECT * FROM `tableau2` ";
+        String sql = "SELECT * FROM `tableau` ";
         try {
             PreparedStatement requetePrepare = connection.prepareStatement(sql);
             ResultSet resultatRequette = requetePrepare.executeQuery();
             while (resultatRequette.next()) {
-                liste.add(new Tableau(resultatRequette.getFloat("diametre"),resultatRequette.getFloat("hauteur"),resultatRequette.getFloat("largeur"),resultatRequette.getFloat("coteSurPlat"),resultatRequette.getFloat("epaisseur"),resultatRequette.getString("nom"),resultatRequette.getFloat("longueur"),resultatRequette.getString("nomMat")));
+                liste.add(new Tableau(resultatRequette.getFloat("diametre"),resultatRequette.getFloat("hauteur"),resultatRequette.getFloat("largeur"),resultatRequette.getFloat("coteSurPlat"),resultatRequette.getFloat("epaisseur"),resultatRequette.getString("nom"),resultatRequette.getFloat("longueur"),resultatRequette.getString("nomMat"),resultatRequette.getInt("id_typeforme")));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
