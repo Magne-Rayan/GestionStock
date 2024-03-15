@@ -13,7 +13,7 @@
    <children>
       <Label layoutX="18.0" layoutY="348.0" prefHeight="17.0" prefWidth="106.0" text="Modification stock :" />
       <TextField fx:id="modifStock" layoutX="128.0" layoutY="344.0" />
-      <Label layoutX="213.0" layoutY="14.0" prefHeight="34.0" prefWidth="314.0" text="Mise à jour Base De Données  " textFill="#fa0000">
+      <Label layoutX="228.0" layoutY="14.0" prefHeight="34.0" prefWidth="314.0" text="Mise à jour Base De Données  " textFill="#fa0000">
          <font>
             <Font size="23.0" />
          </font>

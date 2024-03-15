@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -69,6 +70,12 @@ public class BonDebit  implements Initializable {
 
     @FXML
     private Button vider;
+
+    @FXML
+    private Label message;
+
+    @FXML
+    private Label getId;
 
     @FXML
     private ImageView visuelPiece;
@@ -286,6 +293,26 @@ public class BonDebit  implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+
+            String sql = "SELECT id_matiere FROM matiere WHERE ref_materiaux = ? and ref_forme = ?";
+            try {
+                ConnexionBdd connection = new ConnexionBdd();
+                Connection connection1 = connection.getBdd();
+                PreparedStatement requetePrepare = connection1.prepareStatement(sql);
+                System.out.println(materiaux.getValue().getIdMateriaux());
+                System.out.println(forme.getValue().getIdTypeForme());
+                requetePrepare.setInt(1, this.materiaux.getValue().getIdMateriaux());
+                requetePrepare.setInt(2, this.forme.getValue().getIdTypeForme());
+                ResultSet resultatRequette = requetePrepare.executeQuery();
+                while (resultatRequette.next()) {
+                    int id = resultatRequette.getInt("id_matiere");
+                    message.setText("Matiere trouveé : ");
+                    getId.setText(String.valueOf(id));
+
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -302,7 +329,8 @@ public class BonDebit  implements Initializable {
             requete.setFloat(2, Float.valueOf(this.totalDebiter.getText()));
             requete.setInt(3,this.filiere.getValue().getId_filiere());
             requete.setInt(4,this.piece.getValue().getIdPiece());
-            requete.executeQuery();
+            requete.setInt(5, Integer.parseInt(getId.getText()));
+            requete.executeUpdate();
 
     } catch (SQLException e) {
             throw new RuntimeException(e);
