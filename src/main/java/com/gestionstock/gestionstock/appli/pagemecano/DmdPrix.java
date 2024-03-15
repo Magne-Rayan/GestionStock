@@ -34,7 +34,6 @@ public class DmdPrix implements Initializable {
     @FXML
     private TextField diametre;
 
-
     @FXML
     private ComboBox<Tableau> forme;
 
