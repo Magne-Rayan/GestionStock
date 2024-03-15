@@ -335,6 +335,17 @@ public class BonDebit  implements Initializable {
     } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        String sql1 = "UPDATE matiere SET longueur= ? WHERE id_matiere = ?" ;
+        try {
+            PreparedStatement requete = connection.prepareStatement(sql1);
+            requete.setFloat(1, Float.parseFloat(this.stockFinal.getText()));
+            requete.setInt(2,Integer.parseInt(getId.getText()));
+            requete.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         vider();
 
 
