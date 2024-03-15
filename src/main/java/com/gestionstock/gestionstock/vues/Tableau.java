@@ -49,14 +49,12 @@ public class Tableau {
 
     @Override
     public String toString() {
-        return " Dimention : "+
+        return   nom + "dimenssion" +
                 ((largeur !=0)? "l: "+largeur: "") +" "+
                 ((diametre !=0)? "d: "+diametre: "") +" "+
                 ((coteSurPlat !=0)? "cp: "+coteSurPlat: "") +" "+
                 ((hauteur !=0)? "h: "+hauteur: "") +" "+
-                ((epaisseur !=0)? "ep: "+epaisseur: "")+
-                ", nom='" + nom + '\'' +
-                '}';
+                ((epaisseur !=0)? "ep: "+epaisseur: "");
     }
 
 

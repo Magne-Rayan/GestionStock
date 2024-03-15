@@ -19,7 +19,6 @@
          </font>
       </Label>
       <Label layoutX="14.0" layoutY="68.0" prefHeight="17.0" prefWidth="79.0" text="Demandeur :" />
-      <TextField fx:id="demandeur" layoutX="93.0" layoutY="64.0" />
       <Label layoutX="144.0" layoutY="168.0" prefHeight="13.0" prefWidth="46.0" text="LARGEUR">
          <font>
             <Font size="9.0" />
@@ -40,7 +39,7 @@
       <Label layoutX="662.0" layoutY="151.0" text="Quantité :" />
       <TextField fx:id="quantite" layoutX="652.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="largeur" disable="true" layoutX="132.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
-      <TextField fx:id="diametre" disable="true" layoutX="307.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="epaisseur" disable="true" layoutX="307.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="hauteur" disable="true" layoutX="470.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <ImageView fx:id="image" fitHeight="94.0" fitWidth="116.0" layoutX="594.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <TableView layoutX="6.0" layoutY="236.0" prefHeight="200.0" prefWidth="749.0">
@@ -63,19 +62,21 @@
       </Label>
       <Button fx:id="Retour" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="150.0" text="Retour en arriere" />
       <ComboBox fx:id="fournisseur" layoutX="23.0" layoutY="108.0" prefHeight="25.0" prefWidth="716.0" />
-      <TextField fx:id="largeur1" disable="true" layoutX="215.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="CoteSurPlat" disable="true" layoutX="215.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <Label layoutX="225.0" layoutY="166.0" prefHeight="17.0" prefWidth="61.0" text="CoteSurPlat">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
-      <TextField fx:id="diametre1" disable="true" layoutX="390.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="diametre" disable="true" layoutX="390.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <Label layoutX="399.0" layoutY="168.0" prefHeight="13.0" prefWidth="71.0" text=" DIAMETRE">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
-      <ComboBox fx:id="rara" layoutX="14.0" layoutY="181.0" prefHeight="25.0" prefWidth="104.0" />
+      <ComboBox fx:id="forme" layoutX="14.0" layoutY="181.0" onAction="#clickForme" prefHeight="25.0" prefWidth="104.0" />
+      <ComboBox fx:id="demandeur" layoutX="93.0" layoutY="64.0" prefWidth="150.0" />
+      <Label fx:id="getId" layoutX="20.0" layoutY="219.0" prefHeight="17.0" prefWidth="46.0" />
    </children>
    <opaqueInsets>
       <Insets />
