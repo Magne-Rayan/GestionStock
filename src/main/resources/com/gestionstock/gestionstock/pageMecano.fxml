@@ -31,5 +31,6 @@
             <Font size="19.0" />
          </font>
       </Label>
+      <Button fx:id="deconnexion" layoutX="28.0" layoutY="39.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" />
    </children>
 </Pane>

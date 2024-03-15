@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pageConnexion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@connexion.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageacceuil.HelloController">
+<Pane fx:id="pageConnexion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageacceuil.HelloController">
    <children>
       <Label layoutX="87.0" layoutY="107.0" prefHeight="29.0" prefWidth="160.0" text="GestionStock">
          <font>
@@ -33,5 +33,6 @@
             <Font name="Tahoma" size="26.0" />
          </font>
       </Label>
+      <Label fx:id="messageCo" layoutX="365.0" layoutY="152.0" prefHeight="18.0" prefWidth="151.0" />
    </children>
 </Pane>

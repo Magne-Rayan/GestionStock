@@ -32,4 +32,8 @@ public class PageMecano {
         HelloApplication.changeScene("DmdPrix", "Demande de Prix");
 
     }
+    @FXML
+    void deconnexion(ActionEvent event) {
+        HelloApplication.changeScene("hello-view","Gestion de stock!");
+    }
 }

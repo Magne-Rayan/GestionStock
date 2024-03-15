@@ -7,6 +7,7 @@ import com.gestionstock.gestionstock.entity.Utilisateur;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -86,6 +87,11 @@ public class PageAdmin implements Initializable {
     @FXML
     void messageAdmin() {
         nomAdmin.setText("Session "+ HelloApplication.getUser().getNom() +" "+ HelloApplication.getUser().getPrenom());
+    }
+
+    @FXML
+    void deconnexion(ActionEvent event) {
+        HelloApplication.changeScene("hello-view","Gestion de stock!");
     }
 
     public PageAdmin() {

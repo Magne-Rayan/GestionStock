@@ -70,6 +70,7 @@ public class MajBaseDonne implements Initializable {
     private Button vider;
 
     ObservableList<Tableau> list;
+    int index = -1;
 
 
     @FXML
@@ -79,10 +80,20 @@ public class MajBaseDonne implements Initializable {
 
     @FXML
     void vider(){
-
-
-
+        modifStock.setText("");
+        imageForme.setImage(null);
     }
+
+    public void getSelected(javafx.scene.input.MouseEvent mouseEvent) {
+        index = tableau.getSelectionModel().getSelectedIndex();
+        if(index <= -1){
+            return;
+        }
+        modifStock.setText(longueur.getCellData(index).toString());
+        
+    }
+
+
     @FXML
     public void initialiser(){
         diametre.setCellValueFactory(new PropertyValueFactory<Tableau,Float>("diametre"));
@@ -138,7 +149,7 @@ public class MajBaseDonne implements Initializable {
             ConnexionBdd connexionBdd = new ConnexionBdd();
             Connection connection = connexionBdd.getBdd();
 
-            HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
+            /*HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
             //Selectionner l'ensemble des Materiaux
             String sql1 = "SELECT * FROM materiaux";
 
@@ -154,10 +165,6 @@ public class MajBaseDonne implements Initializable {
                 throw new RuntimeException(e);
             }
             // boucle sur les materieaux
-
-
-
-
             //HashMap<String,HashMap<String,Integer>> tab = new HashMap<>();
             //Selectionner l'ensemble des Materiaux
             // boucle sur les baterieaux
@@ -187,7 +194,7 @@ public class MajBaseDonne implements Initializable {
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
-            }
+            }*/
 
 
 
