@@ -1,5 +1,6 @@
 package com.gestionstock.gestionstock.vues;
 
+import com.gestionstock.gestionstock.entity.Forme;
 import com.gestionstock.gestionstock.entity.Utilisateur;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import javafx.collections.FXCollections;
@@ -46,7 +47,20 @@ public class Tableau {
         this.hauteur = hauteur;
     }
 
-    public Tableau(float diametre,float largeur, float hauteur,   float coteSurPlat,float epaisseur, String nom, float longueur, String nomMat) {
+    @Override
+    public String toString() {
+        return "Tableau{" +
+                "diametre=" + diametre +
+                ", largeur=" + largeur +
+                ", epaisseur=" + epaisseur +
+                ", hauteur=" + hauteur +
+                ", coteSurPlat=" + coteSurPlat +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
+
+    public Tableau(float diametre, float largeur, float hauteur, float coteSurPlat, float epaisseur, String nom, float longueur, String nomMat) {
+
         this.diametre = diametre;
         this.hauteur = hauteur;
         this.largeur = largeur;
@@ -98,7 +112,6 @@ public class Tableau {
     }
 
     private String nomMat;
-
 
 }
 

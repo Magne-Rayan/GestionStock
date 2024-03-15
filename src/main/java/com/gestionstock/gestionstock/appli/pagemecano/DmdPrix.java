@@ -1,9 +1,11 @@
 package com.gestionstock.gestionstock.appli.pagemecano;
 
 import com.gestionstock.gestionstock.HelloApplication;
+import com.gestionstock.gestionstock.entity.Forme;
 import com.gestionstock.gestionstock.entity.Fournisseur;
 import com.gestionstock.gestionstock.entity.TypeForme;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
+import com.gestionstock.gestionstock.vues.Tableau;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,13 +13,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class DmdPrix implements Initializable {
@@ -35,7 +35,7 @@ public class DmdPrix implements Initializable {
     private TextField diametre;
 
     @FXML
-    private ChoiceBox<?> forme;
+    private ComboBox<Tableau> forme;
 
     @FXML
     private TextField hauteur;
@@ -85,5 +85,36 @@ public class DmdPrix implements Initializable {
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+
+                String sql2 = "SELECT diametre,hauteur,largeur,cotesurplat,epaisseur,largeur,nom FROM tableau ";
+
+        try{
+
+            PreparedStatement requete = connection.prepareStatement(sql2);
+
+            ResultSet resultatrequete = requete.executeQuery();
+
+            while (resultatrequete.next()){
+                float diametre =  resultatrequete.getFloat("diametre");
+                float hauteur =  resultatrequete.getFloat("hauteur");
+                float largeur =  resultatrequete.getFloat("largeur");
+                float coteSurPlat =  resultatrequete.getFloat("coteSurPlat");
+                float epaisseur =  resultatrequete.getFloat("epaisseur");
+                float longueur  =  resultatrequete.getFloat("longueur");
+                String nom = resultatrequete.getString("nom");
+                forme.getItems().add(new Tableau ( diametre,  hauteur,  largeur,  coteSurPlat,  epaisseur));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
-}
+
+
+
+
+
+
+    }
+
+
