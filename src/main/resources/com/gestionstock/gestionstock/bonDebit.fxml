@@ -23,7 +23,7 @@
       <Label layoutX="18.0" layoutY="246.0" text="Piece :" />
       <ImageView fx:id="logo" fitHeight="65.0" fitWidth="42.0" layoutX="643.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../logoSchuman.png" />
+            <Image url="@../../../logoSchuman.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageSysteme" fitHeight="134.0" fitWidth="157.0" layoutX="268.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
@@ -38,7 +38,7 @@
       <TextField fx:id="stockInitial" disable="true" layoutX="455.0" layoutY="400.0" />
       <Label layoutX="457.0" layoutY="435.0" text="Stock final :" />
       <TextField fx:id="stockFinal" disable="true" layoutX="455.0" layoutY="458.0" />
-      <Button fx:id="valider" layoutX="562.0" layoutY="498.0" mnemonicParsing="false" text="VALIDER" />
+      <Button fx:id="valider" layoutX="562.0" layoutY="498.0" mnemonicParsing="false" onAction="#clickValider" text="VALIDER" />
       <Button fx:id="vider" layoutX="638.0" layoutY="498.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
       <Button fx:id="retourArriere" layoutX="41.0" layoutY="498.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="192.0" text="Retour en arriere" />
       <ComboBox fx:id="nom" layoutX="62.0" layoutY="53.0" prefWidth="150.0" />
@@ -50,5 +50,7 @@
       <ComboBox fx:id="dimention" layoutX="154.0" layoutY="336.0" onAction="#clickDimentionEvent" prefHeight="25.0" prefWidth="115.0" />
       <Label layoutX="21.0" layoutY="392.0" text="Materiaux :" />
       <ComboBox fx:id="materiaux" layoutX="14.0" layoutY="413.0" prefHeight="25.0" prefWidth="115.0" />
+      <Label fx:id="message" layoutX="172.0" layoutY="417.0" prefHeight="17.0" prefWidth="157.0" />
+      <Label fx:id="getId" layoutX="170.0" layoutY="444.0" prefHeight="17.0" prefWidth="157.0" />
    </children>
 </Pane>

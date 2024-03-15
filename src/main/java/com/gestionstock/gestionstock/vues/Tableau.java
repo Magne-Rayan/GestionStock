@@ -49,18 +49,18 @@ public class Tableau {
 
     @Override
     public String toString() {
-        return "Tableau{" +
-                "diametre=" + diametre +
-                ", largeur=" + largeur +
-                ", epaisseur=" + epaisseur +
-                ", hauteur=" + hauteur +
-                ", coteSurPlat=" + coteSurPlat +
+        return " Dimention : "+
+                ((largeur !=0)? "l: "+largeur: "") +" "+
+                ((diametre !=0)? "d: "+diametre: "") +" "+
+                ((coteSurPlat !=0)? "cp: "+coteSurPlat: "") +" "+
+                ((hauteur !=0)? "h: "+hauteur: "") +" "+
+                ((epaisseur !=0)? "ep: "+epaisseur: "")+
                 ", nom='" + nom + '\'' +
                 '}';
     }
 
-    public Tableau(float diametre, float largeur, float hauteur, float coteSurPlat, float epaisseur, String nom, float longueur, String nomMat) {
 
+    public Tableau(float diametre,float largeur, float hauteur,   float coteSurPlat,float epaisseur, String nom, float longueur, String nomMat,int idTypeForme, int idMat) {
         this.diametre = diametre;
         this.hauteur = hauteur;
         this.largeur = largeur;
@@ -69,6 +69,8 @@ public class Tableau {
         this.nom = nom;
         this.longueur = longueur;
         this.nomMat = nomMat;
+        this.id = idTypeForme;
+        this.idMat = idMat;
     }
 
     private float hauteur;
@@ -112,6 +114,27 @@ public class Tableau {
     }
 
     private String nomMat;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
+    public int getIdMat() {
+        return idMat;
+    }
+
+    public void setIdMat(int idMat) {
+        this.idMat = idMat;
+    }
+
+    private int idMat;
+
 
 }
 

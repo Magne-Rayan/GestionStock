@@ -34,6 +34,7 @@ public class DmdPrix implements Initializable {
     @FXML
     private TextField diametre;
 
+
     @FXML
     private ComboBox<Tableau> forme;
 
@@ -86,7 +87,7 @@ public class DmdPrix implements Initializable {
                     throw new RuntimeException(e);
                 }
 
-                String sql2 = "SELECT diametre,hauteur,largeur,cotesurplat,epaisseur,largeur,nom FROM tableau ";
+                String sql2 = "SELECT * FROM tableau3 ";
 
         try{
 
@@ -95,6 +96,8 @@ public class DmdPrix implements Initializable {
             ResultSet resultatrequete = requete.executeQuery();
 
             while (resultatrequete.next()){
+                int id_typpeforme =  resultatrequete.getInt("id_typeforme");
+                int id_matiere =  resultatrequete.getInt("id_matiere");
                 float diametre =  resultatrequete.getFloat("diametre");
                 float hauteur =  resultatrequete.getFloat("hauteur");
                 float largeur =  resultatrequete.getFloat("largeur");
@@ -102,7 +105,8 @@ public class DmdPrix implements Initializable {
                 float epaisseur =  resultatrequete.getFloat("epaisseur");
                 float longueur  =  resultatrequete.getFloat("longueur");
                 String nom = resultatrequete.getString("nom");
-                forme.getItems().add(new Tableau ( diametre,  hauteur,  largeur,  coteSurPlat,  epaisseur));
+                String nomMat = resultatrequete.getString("nomMat");
+                this.forme.getItems().add(new Tableau (  diametre,  hauteur,  largeur,  coteSurPlat,  epaisseur, nom,longueur,nomMat,id_typpeforme, id_matiere ));
 
             }
         } catch (SQLException e) {
