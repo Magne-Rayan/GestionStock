@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.DmdPrix">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.DmdPrix">
    <children>
       <Label layoutX="250.0" prefHeight="61.0" prefWidth="256.0" text="DEMANDE DE PRIX :" textAlignment="CENTER">
          <font>
@@ -37,21 +37,21 @@
          </font>
       </Label>
       <Label layoutX="662.0" layoutY="151.0" text="Quantité :" />
-      <TextField fx:id="quantite" layoutX="652.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField fx:id="quantite1" layoutX="652.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="largeur" disable="true" layoutX="132.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="epaisseur" disable="true" layoutX="307.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="hauteur" disable="true" layoutX="470.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <ImageView fx:id="image" fitHeight="94.0" fitWidth="116.0" layoutX="594.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <TableView layoutX="6.0" layoutY="236.0" prefHeight="200.0" prefWidth="749.0">
+      <TableView fx:id="tableau" layoutX="6.0" layoutY="236.0" prefHeight="200.0" prefWidth="748.0">
         <columns>
-          <TableColumn prefWidth="94.39999532699585" text="FORME" />
-          <TableColumn prefWidth="96.80004119873047" text="LARGEUR" />
-            <TableColumn prefWidth="98.39996337890625" text="CoteSurPlat" />
-            <TableColumn prefWidth="90.4000244140625" text="Epaisseur" />
-            <TableColumn prefWidth="89.5999755859375" text="Diametre" />
-            <TableColumn prefWidth="91.20004272460938" text="Hauteur" />
-            <TableColumn prefWidth="108.00006103515625" text="Longueur" />
-            <TableColumn prefWidth="77.60009765625" text="Quantité" />
+          <TableColumn fx:id="forme" prefWidth="94.39999532699585" text="FORME" />
+          <TableColumn fx:id="largeur" prefWidth="96.80004119873047" text="LARGEUR" />
+            <TableColumn fx:id="coteSurPlat" prefWidth="98.39996337890625" text="CoteSurPlat" />
+            <TableColumn fx:id="epaisseur" prefWidth="90.4000244140625" text="Epaisseur" />
+            <TableColumn fx:id="diametre" prefWidth="89.5999755859375" text="Diametre" />
+            <TableColumn fx:id="hauteur" prefWidth="91.20004272460938" text="Hauteur" />
+            <TableColumn fx:id="longueur" prefWidth="108.00006103515625" text="Longueur" />
+            <TableColumn fx:id="quantite" prefWidth="77.60009765625" text="Quantité" />
         </columns>
       </TableView>
       <TextField fx:id="longueur" layoutX="559.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
@@ -77,6 +77,7 @@
       <ComboBox fx:id="forme" layoutX="14.0" layoutY="181.0" onAction="#clickForme" prefHeight="25.0" prefWidth="104.0" />
       <ComboBox fx:id="demandeur" layoutX="93.0" layoutY="64.0" prefWidth="150.0" />
       <Label fx:id="getId" layoutX="20.0" layoutY="219.0" prefHeight="17.0" prefWidth="46.0" />
+      <Button fx:id="ajouter" layoutX="769.0" layoutY="181.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="88.0" text="Ajouter" />
    </children>
    <opaqueInsets>
       <Insets />

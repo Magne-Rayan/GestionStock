@@ -7,6 +7,7 @@ import com.gestionstock.gestionstock.entity.TypeForme;
 import com.gestionstock.gestionstock.entity.Utilisateur;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import com.gestionstock.gestionstock.vues.Tableau;
+import com.gestionstock.gestionstock.vues.TableauDmdPrix;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,44 +22,56 @@ import java.util.ResourceBundle;
 public class DmdPrix implements Initializable {
 
     @FXML
+    private TextField CoteSurPlat;
+
+    @FXML
     private Button Retour;
+
+    @FXML
+    private TableColumn<?, ?> coteSurPlat;
 
     @FXML
     private ComboBox<Utilisateur> demandeur;
 
     @FXML
-    private ImageView image;
-
-    @FXML
     private TextField diametre;
 
+    @FXML
+    private TableColumn<?, ?> epaisseur;
 
     @FXML
     private ComboBox<Tableau> forme;
-
-    @FXML
-    private TextField hauteur;
-
-    @FXML
-    private TextField largeur;
-
-    @FXML
-    private TextField longueur;
-
-    @FXML
-    private TextField CoteSurPlat;
-
-    @FXML
-    private TextField epaisseur;
-
-    @FXML
-    private TextField quantite;
 
     @FXML
     private ComboBox<Fournisseur> fournisseur;
 
     @FXML
     private Label getId;
+
+    @FXML
+    private TableColumn<?, ?> hauteur;
+
+    @FXML
+    private ImageView image;
+
+    @FXML
+    private TableColumn<?, ?> largeur;
+
+    @FXML
+    private TextField longueur;
+
+    @FXML
+    private TableColumn<TableauDmdPrix, Float > quantite;
+
+    @FXML
+    private TableView<TableauDmdPrix> tableau;
+
+    @FXML
+    private Button ajouter;
+
+    @FXML
+    private TextField quantite1;
+
 
     @FXML
     void bouttonRetour(ActionEvent event) {
@@ -148,7 +161,14 @@ public class DmdPrix implements Initializable {
         hauteur.setText(String.valueOf(t.getHauteur()));
         epaisseur.setText(String.valueOf(t.getEpaisseur()));
         CoteSurPlat.setText(String.valueOf(t.getCoteSurPlat()));
-        longueur.setText(String.valueOf(t.getLongueur()));
+    }
+
+    @FXML
+    void clickAjouter(ActionEvent event) {
+
+        tableau.getItems().add(new TableauDmdPrix(forme.getValue(),Integer.valueOf(longueur.getText()),Integer.valueOf(quantite1.getText())));
+
+
     }
 }
 

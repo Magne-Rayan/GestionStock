@@ -70,7 +70,18 @@ public class Tableau {
         this.id = idTypeForme;
         this.idMat = idMat;
     }
-
+    public Tableau(Tableau t ) {
+        this.diametre = t.diametre;
+        this.hauteur = t.hauteur;
+        this.largeur = t.largeur;
+        this.coteSurPlat = t.coteSurPlat;
+        this.epaisseur = t.epaisseur;
+        this.nom = t.nom;
+        this.longueur = t.longueur;
+        this.nomMat = t.nomMat;
+        this.id = t.id;
+        this.idMat = t.idMat;
+    }
     private float hauteur;
 
     public float getCoteSurPlat() {
