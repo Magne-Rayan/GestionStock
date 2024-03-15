@@ -351,7 +351,7 @@ public class BonDebit  implements Initializable {
         try {
             PreparedStatement requete = connection.prepareStatement(sql2);
             requete.setFloat(1, utilisateur.getId());
-            requete.setInt(2,Integer.parseInt(getId.getText()));
+            //requete.setInt(2,);
             requete.executeUpdate();
 
         } catch (SQLException e) {
