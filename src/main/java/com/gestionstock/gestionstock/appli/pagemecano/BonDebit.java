@@ -345,6 +345,20 @@ public class BonDebit  implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        Utilisateur utilisateur = nom.getValue();
+
+        String sql2 = "INSERT INTO fait (ref_utilisateur, ref_debit) VALUES (?,?)" ;
+        try {
+            PreparedStatement requete = connection.prepareStatement(sql2);
+            requete.setFloat(1, utilisateur.getId());
+            requete.setInt(2,Integer.parseInt(getId.getText()));
+            requete.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
 
         vider();
 
