@@ -18,7 +18,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="valider" layoutX="480.0" layoutY="344.0" mnemonicParsing="false" text="VALIDER" />
+      <Button fx:id="valider" layoutX="480.0" layoutY="344.0" mnemonicParsing="false" onAction="#clickValider" text="VALIDER" />
       <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="114.0" text="Retour en arriere" />
       <Button fx:id="vider" layoutX="581.0" layoutY="344.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
       <TableView fx:id="tableau" layoutX="169.0" layoutY="100.0" onMouseClicked="#getSelected" prefHeight="209.0" prefWidth="551.0">
@@ -34,5 +34,6 @@
         </columns>
       </TableView>
       <ImageView fx:id="imageForme" fitHeight="148.0" fitWidth="137.0" layoutX="14.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="getId" layoutX="302.0" layoutY="348.0" prefHeight="17.0" prefWidth="48.0" />
    </children>
 </Pane>

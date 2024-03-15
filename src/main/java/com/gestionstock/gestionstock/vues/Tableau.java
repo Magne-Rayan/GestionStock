@@ -46,7 +46,7 @@ public class Tableau {
         this.hauteur = hauteur;
     }
 
-    public Tableau(float diametre,float largeur, float hauteur,   float coteSurPlat,float epaisseur, String nom, float longueur, String nomMat,int idTypeForme) {
+    public Tableau(float diametre,float largeur, float hauteur,   float coteSurPlat,float epaisseur, String nom, float longueur, String nomMat,int idTypeForme, int idMat) {
         this.diametre = diametre;
         this.hauteur = hauteur;
         this.largeur = largeur;
@@ -56,6 +56,7 @@ public class Tableau {
         this.longueur = longueur;
         this.nomMat = nomMat;
         this.id = idTypeForme;
+        this.idMat = idMat;
     }
 
     private float hauteur;
@@ -109,6 +110,16 @@ public class Tableau {
     }
 
     private int id;
+
+    public int getIdMat() {
+        return idMat;
+    }
+
+    public void setIdMat(int idMat) {
+        this.idMat = idMat;
+    }
+
+    private int idMat;
 
 
 }

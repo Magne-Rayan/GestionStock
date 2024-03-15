@@ -61,6 +61,9 @@ public class MajBaseDonne implements Initializable {
     private Button retour;
 
     @FXML
+    private Label getId;
+
+    @FXML
     private TableView<Tableau> tableau;
 
     @FXML
@@ -88,6 +91,7 @@ public class MajBaseDonne implements Initializable {
         Tableau t = tableau.getSelectionModel().getSelectedItem();
 
         modifStock.setText(String.valueOf(t.getLongueur()));
+        getId.setText(String.valueOf(t.getIdMat()));
 
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
@@ -135,6 +139,22 @@ public class MajBaseDonne implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialiser();
+    }
+
+    @FXML
+    void clickValider(ActionEvent event){
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+        String sql1 = "UPDATE matiere SET longueur= ? WHERE id_matiere = ?" ;
+        try {
+            PreparedStatement requete = connection.prepareStatement(sql1);
+            requete.setFloat(1, Float.parseFloat(this.longueur.getText()));
+            requete.setInt(2,Integer.parseInt(getId.getText()));
+            requete.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
