@@ -168,21 +168,6 @@ public class BonDebit  implements Initializable {
             throw new RuntimeException(e);
         }
 
-        String sql5 = "SELECT id_piece,nom,img, longueur FROM piece ";
-
-        try{
-            PreparedStatement requete = connection.prepareStatement(sql5);
-            ResultSet resultatRequette = requete.executeQuery();
-            while (resultatRequette.next()) {
-                int id = resultatRequette.getInt("id_piece");
-                String nom = resultatRequette.getString("nom");
-                Blob image = resultatRequette.getBlob("img");
-                float longueur = resultatRequette.getFloat("longueur");
-                this.piece.getItems().add(new Piece(nom,image,longueur,id));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
         Connection connection1 = connexionBdd.getBdd();
         String sql6 = "SELECT * FROM materiaux";
@@ -226,7 +211,25 @@ public class BonDebit  implements Initializable {
     @FXML
     void clickSystemeEvent(ActionEvent event) throws SQLException {
         if(this.systeme.getValue() != null){
-            imageSysteme.setImage(new Image(this.systeme.getValue().getImage().getBinaryStream()));
+            Systeme system = systeme.getValue();
+            imageSysteme.setImage(new Image(systeme.getValue().getImage().getBinaryStream()));
+            String sql4 = "SELECT * FROM piece WHERE ref_systeme = ? ";
+            try {
+                ConnexionBdd connection = new ConnexionBdd();
+                Connection connection1 = connection.getBdd();
+                PreparedStatement requetePrepare = connection1.prepareStatement(sql4);
+                requetePrepare.setInt(1,systeme.getValue().getIdSysteme());
+                ResultSet resultatRequette = requetePrepare.executeQuery();
+                while (resultatRequette.next()) {
+                    int id = resultatRequette.getInt("id_piece");
+                    String nom = resultatRequette.getString("nom");
+                    Blob image = resultatRequette.getBlob("img");
+                    float longueur = resultatRequette.getFloat("longueur");
+                    this.piece.getItems().add(new Piece(nom,image,longueur,id));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
