@@ -47,7 +47,7 @@ public class HelloController   {
             HelloApplication.setUser(user);
             System.out.println(user.getId());
             if(user.getRole()==1){
-                HelloApplication.changeScene("pageAdmin","Page Admin");
+                HelloApplication.changeScene("menuAdmin","Page Admin");
             } else if (user.getRole()==2) {
                 HelloApplication.changeScene("pageMecano","Page Mecano");
             } else if (user.getRole()==3) {

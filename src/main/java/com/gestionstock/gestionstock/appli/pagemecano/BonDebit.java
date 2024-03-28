@@ -162,6 +162,7 @@ public class BonDebit  implements Initializable {
                 String nom = resultatRequette.getString("nom");
                 int id = resultatRequette.getInt("id_systeme");
                 Blob image = resultatRequette.getBlob("img");
+                System.out.println(image.toString());
                 this.systeme.getItems().add(new Systeme(nom,id,image));
             }
         } catch (SQLException e) {
@@ -211,8 +212,6 @@ public class BonDebit  implements Initializable {
     @FXML
     void clickSystemeEvent(ActionEvent event) throws SQLException {
         if(this.systeme.getValue() != null){
-            Systeme system = systeme.getValue();
-            imageSysteme.setImage(new Image(systeme.getValue().getImage().getBinaryStream()));
             String sql4 = "SELECT * FROM piece WHERE ref_systeme = ? ";
             try {
                 ConnexionBdd connection = new ConnexionBdd();
@@ -230,7 +229,9 @@ public class BonDebit  implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+            imageSysteme.setImage(new Image(this.systeme.getValue().getImage().getBinaryStream()));
         }
+
     }
 
     @FXML

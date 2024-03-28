@@ -27,8 +27,6 @@ public class DmdPrix implements Initializable {
     @FXML
     private Button Retour;
 
-    @FXML
-    private TableColumn<?, ?> coteSurPlat;
 
     @FXML
     private ComboBox<Utilisateur> demandeur;
@@ -46,20 +44,14 @@ public class DmdPrix implements Initializable {
     @FXML
     private Label getId;
 
-    @FXML
-    private TableColumn<?, ?> hauteur;
 
     @FXML
     private ImageView image;
 
-    @FXML
-    private TableColumn<?, ?> largeur;
 
     @FXML
     private TextField longueur;
 
-    @FXML
-    private TableColumn<TableauDmdPrix, Float > quantite;
 
     @FXML
     private TableView<TableauDmdPrix> tableau;
@@ -72,6 +64,12 @@ public class DmdPrix implements Initializable {
 
     @FXML
     private TextField epaisseur;
+
+    @FXML
+    private TextField largeur;
+
+    @FXML
+    private TextField hauteur;
 
 
     @FXML
