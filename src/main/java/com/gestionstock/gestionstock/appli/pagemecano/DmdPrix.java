@@ -27,6 +27,8 @@ public class DmdPrix implements Initializable {
     @FXML
     private Button Retour;
 
+    @FXML
+    private Button ajouter;
 
     @FXML
     private ComboBox<Utilisateur> demandeur;
@@ -34,9 +36,14 @@ public class DmdPrix implements Initializable {
     @FXML
     private TextField diametre;
 
+    @FXML
+    private TextField epaisseur;
 
     @FXML
     private ComboBox<Tableau> forme;
+
+    @FXML
+    private TableColumn<?, ?> formeTab;
 
     @FXML
     private ComboBox<Fournisseur> fournisseur;
@@ -44,32 +51,24 @@ public class DmdPrix implements Initializable {
     @FXML
     private Label getId;
 
+    @FXML
+    private TextField hauteur;
 
     @FXML
     private ImageView image;
-
-
-    @FXML
-    private TextField longueur;
-
-
-    @FXML
-    private TableView<TableauDmdPrix> tableau;
-
-    @FXML
-    private Button ajouter;
-
-    @FXML
-    private TextField quantite1;
-
-    @FXML
-    private TextField epaisseur;
 
     @FXML
     private TextField largeur;
 
     @FXML
-    private TextField hauteur;
+    private TextField longueur;
+
+    @FXML
+    private TextField quantite1;
+
+    @FXML
+    private TableView<TableauDmdPrix> tableau;
+
 
 
     @FXML
@@ -165,7 +164,8 @@ public class DmdPrix implements Initializable {
     @FXML
     void clickAjouter(ActionEvent event) {
 
-        tableau.getItems().add(new TableauDmdPrix(forme.getValue(),Integer.valueOf(longueur.getText()),Integer.valueOf(quantite1.getText())));
+        tableau.getItems().add(new TableauDmdPrix(forme.getValue(),Integer.valueOf(largeur.getText()),Integer.valueOf(CoteSurPlat.getText())));
+
 
 
     }

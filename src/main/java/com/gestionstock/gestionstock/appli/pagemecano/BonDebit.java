@@ -324,8 +324,8 @@ public class BonDebit  implements Initializable {
     void clickValider(ActionEvent event){
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
-        String sql = "INSERT INTO bondebit (`quantite`, `longueurTotal`, `ref_filiere`, `ref_piece`, `ref_matiere`) " +
-                "VALUES (?,?,?,?,?) ";
+        String sql = "INSERT INTO bondebit (`quantite`, `longueurTotal`, `ref_filiere`, `ref_piece`, `ref_matiere`,`ref_utilisateur`) " +
+                "VALUES (?,?,?,?,?,?) ";
 
         try {
             PreparedStatement requete = connection.prepareStatement(sql);
@@ -334,7 +334,9 @@ public class BonDebit  implements Initializable {
             requete.setInt(3,this.filiere.getValue().getId_filiere());
             requete.setInt(4,this.piece.getValue().getIdPiece());
             requete.setInt(5, Integer.parseInt(getId.getText()));
+            requete.setInt(6, nom.getValue().getId());
             requete.executeUpdate();
+
 
     } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -349,21 +351,6 @@ public class BonDebit  implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Utilisateur utilisateur = nom.getValue();
-
-        String sql2 = "INSERT INTO fait (ref_utilisateur, ref_debit) VALUES (?,?)" ;
-        try {
-            PreparedStatement requete = connection.prepareStatement(sql2);
-            requete.setFloat(1, utilisateur.getId());
-            //requete.setInt(2,);
-            requete.executeUpdate();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
         vider();
 
 
