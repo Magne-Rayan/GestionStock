@@ -1,15 +1,15 @@
 package com.gestionstock.gestionstock.appli.pagemecano;
 
 import com.gestionstock.gestionstock.HelloApplication;
-import com.gestionstock.gestionstock.entity.Forme;
 import com.gestionstock.gestionstock.entity.Fournisseur;
-import com.gestionstock.gestionstock.entity.TypeForme;
 import com.gestionstock.gestionstock.entity.Utilisateur;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import com.gestionstock.gestionstock.vues.Tableau;
 import com.gestionstock.gestionstock.vues.TableauDmdPrix;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,9 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -219,12 +219,21 @@ public class DmdPrix implements Initializable {
     }
 
     @FXML
-    void bouttonVider(ActionEvent event){
+    void bouttonVider(ActionEvent event) {}
 
-
-
-
+    @FXML
+    void genererPdf(ActionEvent event) {
+        Document doc = new Document();
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\laura\\Pdf\\DemandePrix.pdf"));
+            doc.open();
+            doc.add(new Paragraph("Demande de prix"));
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
+    }
 
     }
 
