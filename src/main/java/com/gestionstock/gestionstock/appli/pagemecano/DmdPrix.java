@@ -6,10 +6,10 @@ import com.gestionstock.gestionstock.entity.Utilisateur;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import com.gestionstock.gestionstock.vues.Tableau;
 import com.gestionstock.gestionstock.vues.TableauDmdPrix;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPCellEvent;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -203,6 +203,7 @@ public class DmdPrix implements Initializable {
     @FXML
     void vider(){
         forme.setValue(null);
+        fournisseur.setValue(null);
         largeur.setText("");
         CoteSurPlat.setText("");
         epaisseur.setText("");
@@ -231,7 +232,91 @@ public class DmdPrix implements Initializable {
             PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\laura\\Pdf\\DemandePrix.pdf"));
             doc.open();
             doc.add(new Paragraph("Demande de prix"));
-            //Image img = Image.getInstance("C:\\projetJava\\gestionStock\\src\\main\\resources");
+            /*Image img = Image.getInstance("C:\\projetJava\\gestionStock\\src\\main\\resources");
+            img.setAbsolutePosition(600,92);
+            doc.add(img);*/
+            doc.add(new Paragraph("Demandeur : " + demandeur.getValue()));
+            doc.add(new Paragraph(" "));
+            doc.add(new Paragraph("Fournisseur : " + fournisseur.getValue()));
+            doc.add(new Paragraph(" "));
+            PdfPTable tableau = new PdfPTable(8);
+            tableau.setWidthPercentage(100);
+            PdfPCell cell ;
+            cell = new PdfPCell(new Phrase("Forme", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Largeur", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Diametre", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Epaisseur", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("CoteSurPlat", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Hauteur", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Longueur", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Quantité", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            //Tableau
+            for (TableauDmdPrix t : data){
+                cell = new PdfPCell(new Phrase(t.getNom(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getLargeur()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getDiametre()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getEpaisseur()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getCoteSurPlat()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getHauteur()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(t.getLongueurdm(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(t.getQuantite(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+            }
+            doc.add(tableau);
             doc.close();
 
 
