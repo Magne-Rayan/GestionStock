@@ -216,7 +216,6 @@ public class DmdPrix implements Initializable {
 
         data.add(new TableauDmdPrix(f.getDiametre(), f.getHauteur(), f.getLargeur(), f.getCoteSurPlat(), f.getEpaisseur(), f.getNom(), f.getLongueur(), f.getNomMat(), f.getId(),f.getIdMat(),longeur.getText(),quantite1.getText()));
         vider();
-
     }
 
     @FXML

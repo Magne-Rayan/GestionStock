@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -41,7 +42,6 @@
       <TextField fx:id="largeur" disable="true" layoutX="132.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="epaisseur" disable="true" layoutX="307.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
       <TextField fx:id="hauteur" disable="true" layoutX="470.0" layoutY="181.0" prefHeight="25.0" prefWidth="71.0" />
-      <ImageView fx:id="image" fitHeight="94.0" fitWidth="116.0" layoutX="594.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <TableView fx:id="tableau" layoutX="52.0" layoutY="236.0" prefHeight="200.0" prefWidth="761.0">
         <columns>
 
@@ -80,8 +80,16 @@
       <ComboBox fx:id="demandeur" layoutX="93.0" layoutY="64.0" prefWidth="150.0" />
       <Label fx:id="getId" layoutX="20.0" layoutY="219.0" prefHeight="17.0" prefWidth="46.0" />
       <Button fx:id="ajouter" layoutX="769.0" layoutY="181.0" mnemonicParsing="false" onAction="#clickAjouter" prefHeight="25.0" prefWidth="88.0" text="Ajouter" />
+
+      <ImageView fitHeight="81.0" fitWidth="116.0" layoutX="769.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../logoSchuman.png" />
+         </image>
+      </ImageView>
+
       <Button layoutX="608.0" layoutY="471.0" mnemonicParsing="false" onAction="#bouttonVider" prefHeight="25.0" prefWidth="88.0" text="Vider" />
       <Button layoutX="725.0" layoutY="471.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Envoyer PDF" />
+
    </children>
    <opaqueInsets>
       <Insets />
