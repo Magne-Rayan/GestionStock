@@ -18,10 +18,10 @@ public class Mail {
             String title = "[APP] Welcome to the Jakarta Mail Demo Application";
             app.displayTitle(title);
 
-            final String to = "mike@redlich.net";
-            final String from = "mpredli@gmail.com";
-            final String username = "<email address>";
-            final String password = "<password>";
+            final String to = "s.abdelmalek@lprs.fr";
+            final String from = "gestionstocklprs@gmail.com";
+            final String username = "gestionstocklprs@gmail.com";
+            final String password = "ruxwkerigiayopnz";
 
             final String host = "smtp.gmail.com";
             final int port = 587;
@@ -49,7 +49,7 @@ public class Mail {
             try {
                 message.setFrom(new InternetAddress(from));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-                message.setSubject("Groovy email");
+                message.setSubject("Objet");
                 message.setText("Test message");
                 Transport.send(message);
                 System.out.println("[APP] Email sent successfully");
