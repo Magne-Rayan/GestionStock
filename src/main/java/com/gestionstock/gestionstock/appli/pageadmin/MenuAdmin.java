@@ -1,22 +1,15 @@
-package com.gestionstock.gestionstock.appli.pagemecano;
+package com.gestionstock.gestionstock.appli.pageadmin;
 
 import com.gestionstock.gestionstock.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
-public class PageMecano {
-    @FXML
-    private Button bonCom;
+public class MenuAdmin {
 
     @FXML
-    private Button debitMat;
-
-    @FXML
-    private Button etatStock;
-
-    @FXML
-    private Button maj;
+    void bouttonNoir(ActionEvent event) {
+        HelloApplication.changeScene("pageAdmin", "Mise a jour base de donne");
+    }
 
     @FXML
     void bouttonRouge(ActionEvent event) {
@@ -35,7 +28,6 @@ public class PageMecano {
     @FXML
     void bouttonVert(ActionEvent event) {
         HelloApplication.changeScene("etatStock", "Etats des Stocks");
-
     }
     @FXML
     void deconnexion(ActionEvent event) {

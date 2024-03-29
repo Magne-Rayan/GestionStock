@@ -15,7 +15,7 @@
       </Label>
       <Button fx:id="debitMat" layoutX="417.0" layoutY="164.0" mnemonicParsing="false" onAction="#bouttonJaune" styleClass="button2" stylesheets="@connexion.css" />
       <Button fx:id="bonCom" layoutX="415.0" layoutY="223.0" mnemonicParsing="false" onAction="#bouttonBleu" stylesheets="@connexion.css" />
-      <Button fx:id="etatStock" layoutX="417.0" layoutY="310.0" mnemonicParsing="false" styleClass="button3" stylesheets="@connexion.css" />
+      <Button fx:id="etatStock" layoutX="417.0" layoutY="310.0" mnemonicParsing="false" onAction="#bouttonVert" styleClass="button3" stylesheets="@connexion.css" />
       <Label layoutX="152.0" layoutY="163.0" text="Bon de débit matière ">
          <font>
             <Font size="18.0" />

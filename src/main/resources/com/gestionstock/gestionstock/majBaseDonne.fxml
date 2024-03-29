@@ -34,6 +34,6 @@
         </columns>
       </TableView>
       <ImageView fx:id="imageForme" fitHeight="148.0" fitWidth="137.0" layoutX="14.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="getId" layoutX="302.0" layoutY="348.0" prefHeight="17.0" prefWidth="48.0" />
+      <Label fx:id="getId" layoutX="35.0" layoutY="369.0" prefHeight="17.0" prefWidth="48.0" />
    </children>
 </Pane>

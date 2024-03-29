@@ -1,35 +1,31 @@
 package com.gestionstock.gestionstock.vues;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class TableauDmdPrix extends Tableau {
+    private String longueurdm;
 
-    @Override
-    public float getLongueur() {
-        return longueurdmd;
+    public String getLongueurdm() {
+        return longueurdm;
     }
 
-    @Override
-    public void setLongueur(float longueur) {
-        this.longueurdmd = longueur;
+    public void setLongueurdm(String longueurdm) {
+        this.longueurdm = longueurdm;
     }
 
-    public float getQuantité() {
+    public String getQuantite() {
         return quantite;
     }
 
-    public void setQuantité(float quantité) {
-        this.quantite= quantité;
+    public void setQuantite(String quantite) {
+        this.quantite = quantite;
     }
 
-    private float longueurdmd;
+    private String quantite;
 
-    private float quantite;
-
-    public TableauDmdPrix(Tableau t, float longeurdmd, float quantite) {
-        super(t);
-
-        this.longueurdmd = longeurdmd;
+    public TableauDmdPrix(float diametre, float largeur, float hauteur, float coteSurPlat, float epaisseur, String nom, float longueur, String nomMat, int idTypeForme, int idMat, String longueurdm,String quantite) {
+        super(diametre, largeur, hauteur, coteSurPlat, epaisseur, nom, longueur, nomMat, idTypeForme, idMat);
+        this.longueurdm = longueurdm;
         this.quantite = quantite;
-
-
     }
 }

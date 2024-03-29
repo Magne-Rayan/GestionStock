@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageadmin.MenuAdmin">
+   <children>
+      <Button layoutX="343.0" layoutY="67.0" mnemonicParsing="false" onAction="#bouttonNoir" styleClass="button4" stylesheets="@connexion.css" />
+      <Label layoutX="158.0" layoutY="76.0" text="Gerer les utilisateurs :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="179.0" layoutY="197.0" text="Bon debit matiere :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="343.0" layoutY="192.0" mnemonicParsing="false" onAction="#bouttonJaune" styleClass="button2" stylesheets="@connexion.css" />
+      <Label layoutX="195.0" layoutY="258.0" text="Bon commande :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="343.0" layoutY="253.0" mnemonicParsing="false" onAction="#bouttonBleu" stylesheets="@connexion.css" />
+      <Label layoutX="210.0" layoutY="323.0" text="Etat des stock :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="343.0" layoutY="324.0" mnemonicParsing="false" onAction="#bouttonVert" styleClass="button3" stylesheets="@connexion.css" />
+      <Label layoutX="195.0" layoutY="141.0" text="Etats des stocks :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="343.0" layoutY="136.0" mnemonicParsing="false" onAction="#bouttonRouge" styleClass="button1" stylesheets="@connexion.css" />
+      <Button layoutX="32.0" layoutY="42.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" />
+   </children>
+</Pane>
