@@ -84,7 +84,7 @@ public class DmdPrix implements Initializable {
     private TextField largeur;
 
     @FXML
-    private TextField longueur;
+    private TextField longeur;
 
     @FXML
     private TextField quantite1;
@@ -205,7 +205,7 @@ public class DmdPrix implements Initializable {
         epaisseur.setText("");
         diametre.setText("");
         hauteur.setText("");
-        longueur.setText("");
+        longeur.setText("");
         quantite1.setText("");
 
     }
@@ -214,9 +214,19 @@ public class DmdPrix implements Initializable {
     void clickAjouter(ActionEvent event) {
         Tableau f = forme.getValue();
 
-        data.add(new TableauDmdPrix(f.getDiametre(), f.getHauteur(), f.getLargeur(), f.getCoteSurPlat(), f.getEpaisseur(), f.getNom(), f.getLongueur(), f.getNomMat(), f.getId(),f.getIdMat(),longueur.getText(),quantite1.getText()));
+        data.add(new TableauDmdPrix(f.getDiametre(), f.getHauteur(), f.getLargeur(), f.getCoteSurPlat(), f.getEpaisseur(), f.getNom(), f.getLongueur(), f.getNomMat(), f.getId(),f.getIdMat(),longeur.getText(),quantite1.getText()));
         vider();
     }
-}
+
+    @FXML
+    void bouttonVider(ActionEvent event){
+
+
+
+
+        }
+
+    }
+
 
 
