@@ -8,12 +8,18 @@ import com.gestionstock.gestionstock.entity.Utilisateur;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import com.gestionstock.gestionstock.vues.Tableau;
 import com.gestionstock.gestionstock.vues.TableauDmdPrix;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.sql.*;
@@ -43,7 +49,24 @@ public class DmdPrix implements Initializable {
     private ComboBox<Tableau> forme;
 
     @FXML
-    private TableColumn<?, ?> formeTab;
+    private TableColumn<TableauDmdPrix, String> formeTab;
+
+    @FXML
+    private TableColumn<TableauDmdPrix, String> largeurTab;
+
+    @FXML
+    private TableColumn<TableauDmdPrix, String> coteTab;
+
+    @FXML
+    private TableColumn<TableauDmdPrix, String> epaisseurTab;
+    @FXML
+    private TableColumn<TableauDmdPrix, String> diametreTab;
+    @FXML
+    private TableColumn<TableauDmdPrix, String> hauteurTab;
+    @FXML
+    private TableColumn<TableauDmdPrix, String> longueurTab;
+    @FXML
+    private TableColumn<TableauDmdPrix, String> quantiteTab;
 
     @FXML
     private ComboBox<Fournisseur> fournisseur;
@@ -69,6 +92,9 @@ public class DmdPrix implements Initializable {
     @FXML
     private TableView<TableauDmdPrix> tableau;
 
+    private ObservableList<TableauDmdPrix> data = FXCollections.observableArrayList();
+
+
 
 
     @FXML
@@ -78,6 +104,16 @@ public class DmdPrix implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        tableau.setItems(data);
+        formeTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("nom"));
+        hauteurTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("hauteur"));
+        diametreTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("diametre"));
+        epaisseurTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("epaisseur"));
+        coteTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("coteSurPlat"));
+        largeurTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("largeur"));
+        longueurTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("longueurdm"));
+        quantiteTab.setCellValueFactory(new PropertyValueFactory<TableauDmdPrix,String>("quantite"));
 
         ConnexionBdd connexionBdd = new ConnexionBdd();
         Connection connection = connexionBdd.getBdd();
@@ -162,11 +198,24 @@ public class DmdPrix implements Initializable {
     }
 
     @FXML
+    void vider(){
+        forme.setValue(null);
+        largeur.setText(null);
+        CoteSurPlat.setText(null);
+        epaisseur.setText(null);
+        diametre.setText(null);
+        hauteur.setText(null);
+        longueur.setText(null);
+        quantite1.setText(null);
+
+    }
+
+    @FXML
     void clickAjouter(ActionEvent event) {
+        Tableau f = forme.getValue();
 
-        tableau.getItems().add(new TableauDmdPrix(forme.getValue(),Integer.valueOf(largeur.getText()),Integer.valueOf(CoteSurPlat.getText())));
-
-
+        data.add(new TableauDmdPrix(f.getDiametre(), f.getHauteur(), f.getLargeur(), f.getCoteSurPlat(), f.getEpaisseur(), f.getNom(), f.getLongueur(), f.getNomMat(), f.getId(),f.getIdMat(),longueur.getText(),quantite1.getText()));
+        vider();
 
     }
 }

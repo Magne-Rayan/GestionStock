@@ -90,8 +90,8 @@ public class PageAdmin implements Initializable {
     }
 
     @FXML
-    void deconnexion(ActionEvent event) {
-        HelloApplication.changeScene("menuAdmin","Gestion de stock!");
+    void bouttonRetour(ActionEvent event){
+        HelloApplication.changeScene("menuAdmin","Menu Admin");
     }
 
     public PageAdmin() {

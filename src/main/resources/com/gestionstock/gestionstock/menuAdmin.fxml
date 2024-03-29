@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="343.0" layoutY="324.0" mnemonicParsing="false" styleClass="button3" stylesheets="@connexion.css" />
+      <Button layoutX="343.0" layoutY="324.0" mnemonicParsing="false" onAction="#bouttonVert" styleClass="button3" stylesheets="@connexion.css" />
       <Label layoutX="195.0" layoutY="141.0" text="Etats des stocks :">
          <font>
             <Font size="18.0" />
