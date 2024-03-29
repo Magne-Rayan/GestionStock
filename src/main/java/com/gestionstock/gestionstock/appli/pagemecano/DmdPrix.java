@@ -8,6 +8,7 @@ import com.gestionstock.gestionstock.vues.Tableau;
 import com.gestionstock.gestionstock.vues.TableauDmdPrix;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
@@ -21,6 +22,8 @@ import javafx.scene.image.ImageView;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -228,9 +231,15 @@ public class DmdPrix implements Initializable {
             PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\laura\\Pdf\\DemandePrix.pdf"));
             doc.open();
             doc.add(new Paragraph("Demande de prix"));
+            //Image img = Image.getInstance("C:\\projetJava\\gestionStock\\src\\main\\resources");
+            doc.close();
+
+
         } catch (DocumentException e) {
             throw new RuntimeException(e);
         } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

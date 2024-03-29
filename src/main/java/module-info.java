@@ -3,6 +3,9 @@ module com.gestionstock.gestionstock {
     requires javafx.fxml;
     requires java.sql;
     requires itextpdf;
+    requires jakarta.mail;
+
+
 
     exports com.gestionstock.gestionstock.sql;
     opens com.gestionstock.gestionstock.sql to javafx.fxml;
