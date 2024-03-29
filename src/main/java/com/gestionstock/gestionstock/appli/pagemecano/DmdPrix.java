@@ -36,12 +36,7 @@ public class DmdPrix implements Initializable {
     @FXML
     private TextField diametre;
 
-<<<<<<< HEAD
-    @FXML
-    private TableColumn<?, ?> epaisseur;
 
-=======
->>>>>>> 5d25c4d58922990806657822d72395975d0a41f4
     @FXML
     private ComboBox<Tableau> forme;
 
@@ -51,14 +46,11 @@ public class DmdPrix implements Initializable {
     @FXML
     private Label getId;
 
-    @FXML
-    private TableColumn<?, ?> hauteur;
 
     @FXML
     private ImageView image;
 
-    @FXML
-    private TableColumn<?, ?> largeur;
+
 
     @FXML
     private TextField longueur;
@@ -74,6 +66,16 @@ public class DmdPrix implements Initializable {
 
     @FXML
     private TextField quantite1;
+
+    @FXML
+    private TextField largeur;
+
+    @FXML
+    private TextField epaisseur;
+
+    @FXML
+    private TextField hauteur;
+
 
 
     @FXML
