@@ -45,11 +45,11 @@
       <TableView fx:id="tableau" layoutX="52.0" layoutY="236.0" prefHeight="200.0" prefWidth="761.0">
         <columns>
           <TableColumn fx:id="formeTab" prefWidth="94.39999532699585" text="FORME" />
-          <TableColumn fx:id="hauteurTab" prefWidth="96.80004119873047" text="Hauteur" />
+          <TableColumn fx:id="hauteurTab" prefWidth="96.80004119873047" text="Largeur" />
             <TableColumn fx:id="diametreTab" prefWidth="98.39996337890625" text="Diametre" />
             <TableColumn fx:id="epaisseurTab" prefWidth="90.4000244140625" text="Epaisseur" />
             <TableColumn fx:id="coteTab" prefWidth="89.5999755859375" text="CoteSurPlat" />
-            <TableColumn fx:id="largeurTab" prefWidth="91.20004272460938" text="largeur" />
+            <TableColumn fx:id="largeurTab" prefWidth="91.20004272460938" text="Hauteur" />
             <TableColumn fx:id="longueurTab" prefWidth="108.00006103515625" text="Longueur" />
             <TableColumn fx:id="quantiteTab" prefWidth="77.60009765625" text="Quantité" />
         </columns>
