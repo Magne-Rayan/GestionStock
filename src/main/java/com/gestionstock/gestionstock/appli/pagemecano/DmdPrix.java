@@ -102,7 +102,11 @@ public class DmdPrix implements Initializable {
 
     @FXML
     void bouttonRetour(ActionEvent event) {
-        HelloApplication.changeScene("pageMecano", "Page Mecano");
+        if(HelloApplication.getUser().getId()== 1 ){
+            HelloApplication.changeScene("menuAdmin","Menu Admin");
+        }if(HelloApplication.getUser().getId()== 2 ){
+            HelloApplication.changeScene("pageMecano", "Page Mecano");
+        }
     }
 
     @Override
