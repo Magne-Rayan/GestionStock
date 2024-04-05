@@ -101,9 +101,9 @@ public class BonDebit  implements Initializable {
 
     @FXML
     void bouttonRetour(ActionEvent event){
-        if(HelloApplication.getUser().getId()== 1 ){
+        if(HelloApplication.getUser().getRole()== 1 ){
             HelloApplication.changeScene("menuAdmin","Menu Admin");
-        }if(HelloApplication.getUser().getId()== 2 ){
+        }if(HelloApplication.getUser().getRole()== 2 ){
             HelloApplication.changeScene("pageMecano", "Page Mecano");
         }
     }

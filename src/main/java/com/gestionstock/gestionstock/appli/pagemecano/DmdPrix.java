@@ -102,9 +102,9 @@ public class DmdPrix implements Initializable {
 
     @FXML
     void bouttonRetour(ActionEvent event) {
-        if(HelloApplication.getUser().getId()== 1 ){
+        if(HelloApplication.getUser().getRole()== 1 ){
             HelloApplication.changeScene("menuAdmin","Menu Admin");
-        }if(HelloApplication.getUser().getId()== 2 ){
+        }else if(HelloApplication.getUser().getRole()== 2 ){
             HelloApplication.changeScene("pageMecano", "Page Mecano");
         }
     }
@@ -233,7 +233,7 @@ public class DmdPrix implements Initializable {
     void genererPdf(ActionEvent event) {
         Document doc = new Document();
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\laura\\Pdf\\DemandePrix.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\projetJava\\gestionStock\\Pdf\\DemandeDePrix.pdf"));
             doc.open();
             doc.add(new Paragraph("Demande de prix"));
             /*Image img = Image.getInstance("C:\\projetJava\\gestionStock\\src\\main\\resources");
