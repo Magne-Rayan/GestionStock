@@ -19,9 +19,9 @@ import java.sql.SQLException;
 public class EtatDesStocks {
     @FXML
     void bouttonRetour(ActionEvent event){
-        if(HelloApplication.getUser().getId()== 1 ){
+        if(HelloApplication.getUser().getRole()== 1 ){
             HelloApplication.changeScene("menuAdmin","Menu Admin");
-        }if(HelloApplication.getUser().getId()== 2 ){
+        }if(HelloApplication.getUser().getRole()== 2 ){
             HelloApplication.changeScene("pageMecano", "Page Mecano");
         }
     }
@@ -36,7 +36,7 @@ public class EtatDesStocks {
                 PreparedStatement requetePrepare = connection.prepareStatement(sql);
                 ResultSet resultatRequette = requetePrepare.executeQuery();
 
-            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\laura\\Pdf\\EtatDesStocks.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\projetJava\\gestionStock\\Pdf\\EtatsDesStocks.pdf"));
             doc.open();
             doc.add(new Paragraph("Etats des Stocks : "));
             doc.add(new Paragraph(" "));
