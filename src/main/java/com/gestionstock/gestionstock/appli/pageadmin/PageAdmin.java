@@ -91,7 +91,9 @@ public class PageAdmin implements Initializable {
 
     @FXML
     void bouttonRetour(ActionEvent event){
-        HelloApplication.changeScene("menuAdmin","Menu Admin");
+        if(HelloApplication.getUser().getId()== 1 ){
+            HelloApplication.changeScene("menuAdmin","Menu Admin");
+        }
     }
 
     public PageAdmin() {

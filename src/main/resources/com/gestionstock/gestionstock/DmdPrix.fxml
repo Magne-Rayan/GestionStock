@@ -88,7 +88,7 @@
       </ImageView>
 
       <Button layoutX="608.0" layoutY="471.0" mnemonicParsing="false" onAction="#bouttonVider" prefHeight="25.0" prefWidth="88.0" text="Vider" />
-      <Button layoutX="725.0" layoutY="471.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Envoyer PDF" />
+      <Button layoutX="725.0" layoutY="471.0" mnemonicParsing="false" onAction="#genererPdf" prefHeight="25.0" prefWidth="88.0" text="Envoyer PDF" />
 
    </children>
    <opaqueInsets>

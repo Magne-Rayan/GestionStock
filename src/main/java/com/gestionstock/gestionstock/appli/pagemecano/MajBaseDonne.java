@@ -4,6 +4,11 @@ import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.entity.*;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
 import com.gestionstock.gestionstock.vues.Tableau;
+import com.gestionstock.gestionstock.vues.TableauDmdPrix;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -16,6 +21,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.HashMap;
@@ -79,7 +86,11 @@ public class MajBaseDonne implements Initializable {
 
     @FXML
     void bouttonRetour(ActionEvent event) {
+        if(HelloApplication.getUser().getId()== 1 ){
+            HelloApplication.changeScene("menuAdmin","Menu Admin");
+        }if(HelloApplication.getUser().getId()== 2 ){
         HelloApplication.changeScene("pageMecano", "Page Mecano");
+        }
     }
 
     @FXML
@@ -159,6 +170,8 @@ public class MajBaseDonne implements Initializable {
         }
 
     }
+
+
 
 
 }

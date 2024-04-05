@@ -20,7 +20,7 @@
       </Label>
       <Button fx:id="valider" layoutX="480.0" layoutY="344.0" mnemonicParsing="false" onAction="#clickValider" text="VALIDER" />
       <Button fx:id="retour" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="25.0" prefWidth="114.0" text="Retour en arriere" />
-      <Button fx:id="vider" layoutX="581.0" layoutY="344.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
+      <Button fx:id="vider" layoutX="570.0" layoutY="344.0" mnemonicParsing="false" onAction="#vider" text="VIDER" />
       <TableView fx:id="tableau" layoutX="169.0" layoutY="100.0" onMouseClicked="#getSelected" prefHeight="209.0" prefWidth="551.0">
         <columns>
           <TableColumn fx:id="diametre" prefWidth="68.0" text="diametre" />
