@@ -206,7 +206,6 @@ public class DmdPrix implements Initializable {
     @FXML
     void vider() {
         forme.setValue(null);
-        fournisseur.setValue(null);
         largeur.setText("");
         CoteSurPlat.setText("");
         epaisseur.setText("");

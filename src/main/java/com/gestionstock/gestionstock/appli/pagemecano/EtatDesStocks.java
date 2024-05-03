@@ -9,9 +9,17 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import  org.apache.poi.hssf.usermodel.HSSFSheet;
+import  org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import  org.apache.poi.hssf.usermodel.HSSFRow;
+import  org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.ss.usermodel.Sheet;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -131,5 +139,57 @@ public class EtatDesStocks {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void genererExcel(ActionEvent event) {
+        String filename="C:\\projetJava\\gestionStock\\Ecxels\\Etats des Stocks.xls";
+        HSSFWorkbook excel = new HSSFWorkbook();
+        HSSFSheet feuille = excel.createSheet("Etat des  Stocks");
+        HSSFRow rowhead=   feuille.createRow((short)0);
+        rowhead.createCell((short) 0).setCellValue("Diametre");
+        rowhead.createCell((short) 1).setCellValue("Hauteur");
+        rowhead.createCell((short) 2).setCellValue("Largeur");
+        rowhead.createCell((short) 3).setCellValue("Cote Sur Plat");
+        rowhead.createCell((short) 4).setCellValue("Epaisseur");
+        rowhead.createCell((short) 5).setCellValue("Nom");
+        rowhead.createCell((short) 6).setCellValue("Longeur");
+        rowhead.createCell((short) 7).setCellValue("Nom Materiaux");
+
+        ConnexionBdd connexionBdd = new ConnexionBdd();
+        Connection connection = connexionBdd.getBdd();
+        String sql = "SELECT * FROM tableau ";
+        int i=1;
+        try {
+            PreparedStatement requetePrepare = connection.prepareStatement(sql);
+            ResultSet resultatRequette = requetePrepare.executeQuery();
+
+            while (resultatRequette.next()){
+                HSSFRow row=   feuille.createRow((short)i);
+                row.createCell((short) 0).setCellValue(String.valueOf(resultatRequette.getFloat("diametre")));
+                row.createCell((short) 1).setCellValue(String.valueOf(resultatRequette.getFloat("hauteur")));
+                row.createCell((short) 2).setCellValue(String.valueOf(resultatRequette.getFloat("largeur")));
+                row.createCell((short) 3).setCellValue(String.valueOf(resultatRequette.getFloat("coteSurPlat")));
+                row.createCell((short) 4).setCellValue(String.valueOf(resultatRequette.getFloat("epaisseur")));
+                row.createCell((short) 5).setCellValue(resultatRequette.getString("nom"));
+                row.createCell((short) 6).setCellValue(String.valueOf(resultatRequette.getFloat("longueur")));
+                row.createCell((short) 7).setCellValue(resultatRequette.getString("nomMat"));
+                i++;
+
+            }
+
+            FileOutputStream fileOut =  new FileOutputStream(filename);
+            excel.write(fileOut);
+            fileOut.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

@@ -13,7 +13,7 @@
          </font>
       </Label>
       <Button layoutX="85.0" layoutY="181.0" mnemonicParsing="false" onAction="#genererPdf" prefHeight="39.0" prefWidth="110.0" text="PDF" />
-      <Button layoutX="344.0" layoutY="181.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="110.0" text="EXCEL" />
+      <Button layoutX="344.0" layoutY="181.0" mnemonicParsing="false" onAction="#genererExcel" prefHeight="39.0" prefWidth="110.0" text="EXCEL" />
       <Button layoutX="18.0" layoutY="339.0" mnemonicParsing="false" onAction="#bouttonRetour" prefHeight="19.0" prefWidth="134.0" text="Retour en arriere" />
    </children>
 </Pane>

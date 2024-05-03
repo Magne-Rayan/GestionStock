@@ -4,6 +4,7 @@ module com.gestionstock.gestionstock {
     requires java.sql;
     requires itextpdf;
     requires jakarta.mail;
+    requires org.apache.poi.ooxml;
 
 
 

@@ -19,7 +19,7 @@
          </font>
       </Label>
       <Button layoutX="343.0" layoutY="192.0" mnemonicParsing="false" onAction="#bouttonJaune" styleClass="button2" stylesheets="@connexion.css" />
-      <Label layoutX="195.0" layoutY="258.0" text="Bon commande :">
+      <Label layoutX="121.0" layoutY="258.0" text="Bon de demande de prix : ">
          <font>
             <Font size="18.0" />
          </font>
@@ -31,7 +31,7 @@
          </font>
       </Label>
       <Button layoutX="343.0" layoutY="324.0" mnemonicParsing="false" onAction="#bouttonVert" styleClass="button3" stylesheets="@connexion.css" />
-      <Label layoutX="195.0" layoutY="141.0" text="Etats des stocks :">
+      <Label layoutX="86.0" layoutY="141.0" text="Mise a jour base de données : ">
          <font>
             <Font size="18.0" />
          </font>
