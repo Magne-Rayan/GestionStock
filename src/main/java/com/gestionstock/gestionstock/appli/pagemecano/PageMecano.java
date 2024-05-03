@@ -39,6 +39,12 @@ public class PageMecano {
     }
 
     @FXML
+    void bouttonBleu2(ActionEvent event) {
+        HelloApplication.changeScene("commande", "Commande");
+
+    }
+
+    @FXML
     void bouttonAjout(ActionEvent event) {
         HelloApplication.changeScene("ajout", "Ajout");
 
