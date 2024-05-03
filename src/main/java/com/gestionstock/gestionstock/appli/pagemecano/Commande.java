@@ -1,5 +1,6 @@
 package com.gestionstock.gestionstock.appli.pagemecano;
 
+import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.entity.Fournisseur;
 import com.gestionstock.gestionstock.entity.Utilisateur;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
@@ -91,6 +92,15 @@ public class Commande implements Initializable {
             requete.executeUpdate();
     } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void bouttonRetour(ActionEvent event) {
+        if(HelloApplication.getUser().getRole()== 1 ){
+            HelloApplication.changeScene("menuAdmin","Menu Admin");
+        }else if(HelloApplication.getUser().getRole()== 2 ){
+            HelloApplication.changeScene("pageMecano", "Page Mecano");
         }
     }
 }

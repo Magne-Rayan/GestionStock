@@ -43,6 +43,12 @@ public class PageMecano {
         HelloApplication.changeScene("commande", "commande");
 
     }
+
+    @FXML
+    void bouttonAjout(ActionEvent event) {
+        HelloApplication.changeScene("ajout", "Ajout");
+
+    }
     @FXML
     void deconnexion(ActionEvent event) {
         HelloApplication.changeScene("hello-view","Gestion de stock!");

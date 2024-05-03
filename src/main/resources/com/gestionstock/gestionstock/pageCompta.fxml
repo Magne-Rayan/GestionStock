@@ -25,5 +25,11 @@
       <Button layoutX="363.0" layoutY="144.0" mnemonicParsing="false" stylesheets="@connexion.css" />
       <Button layoutX="363.0" layoutY="214.0" mnemonicParsing="false" styleClass="button1" stylesheets="@connexion.css" />
       <Button layoutX="363.0" layoutY="273.0" mnemonicParsing="false" onAction="#bouttonJaune" styleClass="button2" stylesheets="@connexion.css" />
+      <Button layoutX="365.0" layoutY="339.0" mnemonicParsing="false" onAction="#bouttonCommande" styleClass="button4" stylesheets="@connexion.css" />
+      <Label layoutX="186.0" layoutY="345.0" text="commande :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

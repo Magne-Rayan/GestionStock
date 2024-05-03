@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageadmin.MenuAdmin">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pageadmin.MenuAdmin">
    <children>
       <Button layoutX="343.0" layoutY="67.0" mnemonicParsing="false" onAction="#bouttonNoir" styleClass="button4" stylesheets="@connexion.css" />
       <Label layoutX="158.0" layoutY="76.0" text="Gerer les utilisateurs :">
@@ -38,5 +38,17 @@
       </Label>
       <Button layoutX="343.0" layoutY="136.0" mnemonicParsing="false" onAction="#bouttonRouge" styleClass="button1" stylesheets="@connexion.css" />
       <Button layoutX="32.0" layoutY="42.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" />
+      <Button layoutX="345.0" layoutY="393.0" mnemonicParsing="false" onAction="#bouttonBleu2" styleClass="button5" stylesheets="@connexion.css" />
+      <Label layoutX="225.0" layoutY="392.0" text="Commande :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="347.0" layoutY="455.0" mnemonicParsing="false" onAction="#bouttonAjout" styleClass="button6" stylesheets="@connexion.css" />
+      <Label layoutX="274.0" layoutY="460.0" text="Ajout :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
