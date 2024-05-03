@@ -14,7 +14,7 @@ import jakarta.mail.util.StreamProvider;
 
 
 
-public class Mail {
+public class    Mail {
     public void sendMail(Document doc) {
 
         Mail app = new Mail();
