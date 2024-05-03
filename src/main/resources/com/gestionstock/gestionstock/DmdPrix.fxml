@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.DmdPrix">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#genererPdf" prefHeight="543.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.DmdPrix">
    <children>
       <Label layoutX="342.0" layoutY="9.0" prefHeight="61.0" prefWidth="256.0" text="DEMANDE DE PRIX :" textAlignment="CENTER">
          <font>
@@ -87,8 +87,9 @@
          </image>
       </ImageView>
 
-      <Button layoutX="608.0" layoutY="471.0" mnemonicParsing="false" onAction="#bouttonVider" prefHeight="25.0" prefWidth="88.0" text="Vider" />
-      <Button layoutX="725.0" layoutY="471.0" mnemonicParsing="false" onAction="#genererPdf" prefHeight="25.0" prefWidth="88.0" text="Envoyer PDF" />
+      <Button layoutX="462.0" layoutY="471.0" mnemonicParsing="false" onAction="#bouttonVider" prefHeight="25.0" prefWidth="88.0" text="Vider" />
+      <Button layoutX="725.0" layoutY="471.0" mnemonicParsing="false" onAction="#envoyermail" prefHeight="25.0" prefWidth="88.0" text="Envoyer PDF" />
+      <Button layoutX="610.0" layoutY="471.0" mnemonicParsing="false" text="Genere PDF" />
 
    </children>
    <opaqueInsets>
