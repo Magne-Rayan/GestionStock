@@ -22,4 +22,6 @@ module com.gestionstock.gestionstock {
     opens com.gestionstock.gestionstock.vues to javafx.fxml;
     exports com.gestionstock.gestionstock;
     opens com.gestionstock.gestionstock to javafx.fxml;
+    exports com.gestionstock.gestionstock.appli.pagecompta;
+    opens com.gestionstock.gestionstock.appli.pagecompta to javafx.fxml;
 }

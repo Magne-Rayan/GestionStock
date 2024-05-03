@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.PageMecano">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagemecano.PageMecano">
    <children>
       <Button fx:id="maj" layoutX="417.0" layoutY="92.0" mnemonicParsing="false" onAction="#bouttonRouge" styleClass="button1" stylesheets="@connexion.css" />
       <Label layoutX="141.0" layoutY="97.0" text="Mise à jour base de données :  ">
@@ -32,5 +32,11 @@
          </font>
       </Label>
       <Button fx:id="deconnexion" layoutX="28.0" layoutY="39.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" />
+      <Button layoutX="415.0" layoutY="384.0" mnemonicParsing="false" onAction="#bouttonBleu2" styleClass="button5" stylesheets="@connexion.css" />
+      <Label layoutX="254.0" layoutY="388.0" text="commande :">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

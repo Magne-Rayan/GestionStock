@@ -31,6 +31,8 @@ public class EtatDesStocks {
             HelloApplication.changeScene("menuAdmin","Menu Admin");
         }if(HelloApplication.getUser().getRole()== 2 ){
             HelloApplication.changeScene("pageMecano", "Page Mecano");
+        }if(HelloApplication.getUser().getRole()==3){
+            HelloApplication.changeScene("pageCompta", "Page comptabilité");
         }
     }
     @FXML

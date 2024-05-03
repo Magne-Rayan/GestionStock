@@ -37,6 +37,12 @@ public class PageMecano {
         HelloApplication.changeScene("etatStock", "Etats des Stocks");
 
     }
+
+    @FXML
+    void bouttonBleu2(ActionEvent event) {
+        HelloApplication.changeScene("commande", "commande");
+
+    }
     @FXML
     void deconnexion(ActionEvent event) {
         HelloApplication.changeScene("hello-view","Gestion de stock!");
