@@ -32,14 +32,8 @@
          </font>
       </Label>
       <Button fx:id="deconnexion" layoutX="28.0" layoutY="39.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" />
-      <Button layoutX="415.0" layoutY="384.0" mnemonicParsing="false" onAction="#bouttonBleu2" styleClass="button5" stylesheets="@connexion.css" />
-      <Label layoutX="254.0" layoutY="388.0" text="commande :">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Button layoutX="417.0" layoutY="453.0" mnemonicParsing="false" onAction="#bouttonAjout" styleClass="button6" stylesheets="@connexion.css" />
-      <Label layoutX="300.0" layoutY="451.0" text="ajout :">
+      <Button layoutX="415.0" layoutY="379.0" mnemonicParsing="false" onAction="#bouttonAjout" styleClass="button6" stylesheets="@connexion.css" />
+      <Label layoutX="300.0" layoutY="384.0" text="ajout :">
          <font>
             <Font size="19.0" />
          </font>
