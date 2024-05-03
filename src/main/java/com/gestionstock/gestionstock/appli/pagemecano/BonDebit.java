@@ -3,6 +3,13 @@ package com.gestionstock.gestionstock.appli.pagemecano;
 import com.gestionstock.gestionstock.HelloApplication;
 import com.gestionstock.gestionstock.entity.*;
 import com.gestionstock.gestionstock.sql.ConnexionBdd;
+import com.gestionstock.gestionstock.vues.TableauDmdPrix;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +21,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -79,6 +89,9 @@ public class BonDebit  implements Initializable {
 
     @FXML
     private ImageView visuelPiece;
+
+    private ObservableList<Bondebit> data = FXCollections.observableArrayList();
+
 
     @FXML
     void vider(){
@@ -355,8 +368,132 @@ public class BonDebit  implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        data.add(new Bondebit(nom.getValue(),filiere.getValue(),systeme.getValue(),piece.getValue(),forme.getValue(),materiaux.getValue(),dimention.getValue(),quantite.getText(),totalDebiter.getText(),stockInitial.getText(),stockInitial.getText()));
+        genererPdf();
         vider();
 
+    }
 
+    public Document genererPdf(){
+        Document doc = new Document();
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\projetJava\\gestionStock\\Pdf\\BonDebit.pdf"));
+            doc.open();
+            doc.add(new Paragraph("Bon De Debit Matière"));
+            doc.add(new Paragraph(" "));
+            PdfPTable tableau = new PdfPTable(11);
+            tableau.setWidthPercentage(100);
+            PdfPCell cell ;
+            cell = new PdfPCell(new Phrase("Nom", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Filiere", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Systeme", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Piece", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Forme", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Materiaux", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Dimention", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Quantité", FontFactory.getFont("Comic Sans MS",12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Total Debité", FontFactory.getFont("Comic Sans MS",30)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Stock Initial", FontFactory.getFont("Comic Sans MS",30)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            cell = new PdfPCell(new Phrase("Stock Final", FontFactory.getFont("Comic Sans MS",30)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            tableau.addCell((PdfPCell) cell);
+
+            //Tableau
+            for (Bondebit t : data){
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getNom()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getFiliere()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getSysteme()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getPiece()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getForme()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getMateriaux()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(String.valueOf(t.getDimention()), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(t.getQuantite(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(t.getLongTotal(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(t.getStockInitial(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+
+                cell = new PdfPCell(new Phrase(t.getStockFinal(), FontFactory.getFont("Comic Sans MS",12)));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                tableau.addCell((PdfPCell) cell);
+            }
+            doc.add(tableau);
+            doc.close();
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return doc ;
     }
 }

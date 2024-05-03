@@ -31,6 +31,12 @@
     -fx-text-fill: white; /* Couleur du texte du bouton */
     -fx-font-size: 16px; /* Taille de la police du bouton */
 }
+
+.button5 {
+    -fx-background-color: #b0d0f6; /* Couleur de fond du bouton */
+    -fx-text-fill: white; /* Couleur du texte du bouton */
+    -fx-font-size: 16px; /* Taille de la police du bouton */
+}
 .buttonConnexion{
     -fx-background-color:
             linear-gradient(#000000, #000000),
