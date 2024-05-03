@@ -7,23 +7,17 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestionstock.gestionstock.appli.pagecompta.PageCompta">
    <children>
-      <Label layoutX="138.0" layoutY="147.0" prefHeight="29.0" prefWidth="184.0" text="Bon de commandes :">
+      <Label layoutX="142.0" layoutY="178.0" prefHeight="29.0" prefWidth="131.0" text="Etats des stocks :">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="212.0" prefHeight="29.0" prefWidth="131.0" text="Bon de debits :">
+      <Button layoutX="354.0" layoutY="174.0" mnemonicParsing="false" onAction="#bouttonJaune" styleClass="button2" stylesheets="@connexion.css" />
+      <Button layoutX="354.0" layoutY="237.0" mnemonicParsing="false" onAction="#bouttonCommande" styleClass="button4" stylesheets="@connexion.css" />
+      <Label layoutX="185.0" layoutY="243.0" text="commande :">
          <font>
-            <Font size="17.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="276.0" prefHeight="29.0" prefWidth="131.0" text="Etats des stocks :">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Button layoutX="363.0" layoutY="144.0" mnemonicParsing="false" stylesheets="@connexion.css" />
-      <Button layoutX="363.0" layoutY="214.0" mnemonicParsing="false" styleClass="button1" stylesheets="@connexion.css" />
-      <Button layoutX="363.0" layoutY="273.0" mnemonicParsing="false" onAction="#bouttonJaune" styleClass="button2" stylesheets="@connexion.css" />
    </children>
 </Pane>

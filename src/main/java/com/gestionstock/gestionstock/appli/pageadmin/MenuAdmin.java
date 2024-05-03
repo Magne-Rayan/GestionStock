@@ -30,6 +30,17 @@ public class MenuAdmin {
         HelloApplication.changeScene("etatStock", "Etats des Stocks");
     }
     @FXML
+    void bouttonBleu2(ActionEvent event) {
+        HelloApplication.changeScene("commande", "Commande");
+
+    }
+
+    @FXML
+    void bouttonAjout(ActionEvent event) {
+        HelloApplication.changeScene("ajout", "Ajout");
+
+    }
+    @FXML
     void deconnexion(ActionEvent event) {
         HelloApplication.changeScene("hello-view","Gestion de stock!");
     }
